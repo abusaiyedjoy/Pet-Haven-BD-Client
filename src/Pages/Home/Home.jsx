@@ -1,3 +1,4 @@
+import AllPets from "./AllPets/AllPets";
 import Banner from "./Banner/Banner";
 import Category from "./Category/Category";
 
@@ -8,6 +9,7 @@ const Home = () => {
       <div>
         <Banner></Banner>
         <Category></Category>
+        <AllPets></AllPets>
       </div>
     </section>
   );

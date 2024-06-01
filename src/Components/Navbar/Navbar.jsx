@@ -124,7 +124,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="navbar-end flex items-center gap-5">
+                    <div className="navbar-end z-10 flex items-center gap-5">
                         <div className="dropdown dropdown-hover">
                             <div tabIndex={0} role="button">
                                 <button className="p-2 dark:text-gray-100 text-gray-600 dark:bg-gray-600 dark:hover:bg-gray-500 bg-gray-200 rounded-xl duration-100">
