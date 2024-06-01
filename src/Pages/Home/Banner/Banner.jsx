@@ -10,6 +10,27 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 const Banner = () => {
+
+    const banner = [
+        {
+            uri: "https://i.ibb.co/1XKVHMN/matt-nelson-a-I3-EBLvcyu4-unsplash.jpg"
+        },
+        {
+            uri: "https://i.ibb.co/5FCrxGM/matthew-cabret-ub1s-Sv-J-Tbs-unsplash.jpg"
+        },
+        {
+            uri: "https://i.ibb.co/G2MpKkJ/aswathy-n-sr-MHHWCTvc-U-unsplash.jpg"
+        },
+        {
+            uri: "https://i.ibb.co/zXTMxTn/jari-hytonen-YCPk-W-r-6u-A-unsplash.jpg"
+        },
+        {
+            uri: "https://i.ibb.co/DQy52Sg/sophie-dale-Frm-YKi-L4gqs-unsplash.jpg"
+        },
+        {
+            uri: "https://i.ibb.co/HDYxyhj/aleesha-wood-dm-Apv-Bj0n-I-unsplash.jpg"
+        },
+    ]
     return (
         <Swiper
             spaceBetween={30}
@@ -25,15 +46,9 @@ const Banner = () => {
             modules={[Autoplay, Pagination, Navigation]}
             className="mySwiper"
         >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            {
+                banner?.map(image => <SwiperSlide key={image?.uri}><img src={image?.uri} className=' h-[800px] w-full object-cover' alt="" /></SwiperSlide>)
+            }
         </Swiper>
     );
 };
