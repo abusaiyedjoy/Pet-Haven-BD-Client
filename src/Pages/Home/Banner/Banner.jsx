@@ -70,7 +70,7 @@ const Banner = () => {
             <div className="absolute top-1/2 z-30 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-black">
                 <h1 className="text-2xl text-white font-bold my-4">Welcome to Pet Haven BD!</h1>
                 <p className="text-6xl max-w-4xl text-center mx-auto font-bold my-4 px-6 rounded-xl bg-white bg-opacity-40 py-2 text-gradient">
-                    
+
                     <span style={{ color: '#0284c7', fontWeight: 'bold' }}>
                         {/* Style will be inherited from the parent element */}
                         <Typewriter
@@ -86,12 +86,12 @@ const Banner = () => {
                 </p>
                 <div className="flex justify-center items-center gap-10">
                     <form className="max-w-2xl mx-auto">
-                        <div className="flex border-4 w-full border-sky-500 rounded-xl">
+                        <div className="flex justify-center items-center border-4 w-full border-sky-500 rounded-xl">
                             <div className="relative">
                                 <button
                                     id="dropdown-button"
                                     onClick={toggleDropdown}
-                                    className="flex-shrink-0 w-40 z-10 inline-flex items-center py-3 px-3 text-md font-medium text-center text-gray-900 bg-gray-100 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white dark:border-gray-600"
+                                    className="flex-shrink-0 w-40 z-10 inline-flex items-center py-3 px-3 text-md font-medium text-center text-gray-900 bg-gray-100 rounded-l-md hover:bg-gray-200 focus:ring-4 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white dark:border-gray-600"
                                     type="button"
                                 >
                                     {selectedCategory}
@@ -152,21 +152,14 @@ const Banner = () => {
                                     </div>
                                 )}
                             </div>
-                            <div className="relative w-full">
-                                <input
-                                    type="search"
-                                    id="search-dropdown"
-                                    className="block h-full p-3 w-60 outline-none z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-sky-500 focus:border-sky-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-sky-500"
-                                    placeholder="Search Your Pets"
-                                    required
-                                />
-                                <button
-                                    type="submit"
-                                    className="absolute top-0 end-0 p-2.5 text-md font-medium h-full text-white bg-sky-500 rounded-e-lg border border-sky-500 hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-700"
-                                >
-                                    <FaSearch className="w-6 h-4" aria-hidden="true" />
-                                    <span className="sr-only">Search</span>
-                                </button>
+                            <div className="w-full bg-gray-300 dark:bg-gray-700 text-white border rounded-r-md lg:max-w-sm dark:border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-400 focus-within:ring-opacity-40">
+                                <div className="flex flex-col lg:flex-row">
+                                    <input type="email" placeholder="Search your pets here" className="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
+
+                                    <button type="button" className="h-10 px-4 py-2 m-1 text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400">
+                                       <FaSearch/> 
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </form>

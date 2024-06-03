@@ -36,16 +36,16 @@ const Category = () => {
     ];
 
     return (
-        <section className="bg-white dark:bg-gray-900">
-            <div className="container px-6 py-10 mx-auto">
+        <section className="bg-white dark:bg-gray-800">
+            <div className="container px-6 py-12 mx-auto">
                 <Header
                     Heading={"🐇Our Category🐇"}
                 ></Header>
 
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {
-                        Pets?.map(item => <div title="View Details" key={item._id} className="flex flex-col items-center p-6 duration-300 transform border cursor-pointer rounded-full group hover:bg-sky-400 hover:scale-105 transition-transform dark:border-gray-700 dark:hover:border-transparent">
-                            <img className="object-cover w-32 h-32 " src={item.pet_image} alt="" />
+                        Pets?.map(item => <div title="View Details" key={item._id} className="flex flex-col items-center p-6 duration-300 transform border cursor-pointer rounded-full group hover:bg-sky-400 hover:scale-105 transition-transform dark:border-gray-600 dark:hover:border-transparent">
+                            <img className="object-cover w-32 h-32" src={item.pet_image} alt="" />
 
                             <h1 className="mt-4 text-3xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">{item.category}</h1>
                         </div>)

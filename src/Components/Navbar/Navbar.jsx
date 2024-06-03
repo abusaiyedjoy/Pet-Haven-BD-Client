@@ -1,82 +1,48 @@
-import { useState, useEffect } from "react";
-import { FaMoon, FaSun, FaEllipsisV } from "react-icons/fa";
-import { HiMenuAlt1 } from "react-icons/hi";
-import { HiMiniComputerDesktop } from "react-icons/hi2";
-import { Link, NavLink } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
-import toast from "react-hot-toast";
+import { useContext, useState } from 'react';
+import { FaMoon, FaSun, FaEllipsisV } from 'react-icons/fa';
+import { HiMenuAlt1 } from 'react-icons/hi';
+import { HiMiniComputerDesktop } from 'react-icons/hi2';
+import { Link, NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
+import toast from 'react-hot-toast';
+import ThemeContext from '../../Hooks/ThemeContext';
 
 const Navbar = () => {
-    const { user, signOutUser } = useAuth()
-    const [theme, setTheme] = useState(localStorage.getItem("theme") || "system");
-    const element = document.documentElement;
-    const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const { user, signOutUser } = useAuth();
+    const { theme, handleThemeChange } = useContext(ThemeContext);
 
     // User Profile
-
     const [isOpen, setIsOpen] = useState(false);
-
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
-
-
-    // Theme Control
-
+    // Theme Options
     const options = [
         { icon: <FaSun />, text: 'Light' },
         { icon: <FaMoon />, text: 'Dark' },
         { icon: <HiMiniComputerDesktop />, text: 'System' },
     ];
 
-    const applyTheme = (theme) => {
-        if (theme === "Dark" || (theme === "System" && darkQuery.matches)) {
-            element.classList.add("dark");
-        } else {
-            element.classList.remove("dark");
-        }
-    };
-
-    const handleThemeChange = (newTheme) => {
-        setTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-        applyTheme(newTheme);
-    };
-
-
     // Sign Out User
-
     const handleSignOut = () => {
         signOutUser()
             .then((result) => {
                 console.log(result);
-                toast.success('Sign Out Successfully!')
-
+                toast.success('Sign Out Successfully!');
             })
             .catch((error) => {
                 console.log(error);
             });
-    }
-
-
-
-    useEffect(() => {
-        applyTheme(theme);
-        const handleChange = (e) => {
-            if (theme === "System") {
-                applyTheme(e.matches ? "Dark" : "Light");
-            }
-        };
-        darkQuery.addEventListener("change", handleChange);
-        return () => darkQuery.removeEventListener("change", handleChange);
-    }, [theme]);
+    };
 
     const navlinks = (
         <>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/parent">Parent</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/allPet">Pet Listing</NavLink></li>
+            <li><NavLink to="/services">Services</NavLink></li>
+            <li><NavLink to="/about">About Us</NavLink></li>
+            <li><NavLink to="/campains">Donation Campains</NavLink></li>
             <li><NavLink to="/dashboard">Dashboard</NavLink></li>
         </>
     );
@@ -88,14 +54,12 @@ const Navbar = () => {
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden flex justify-center items-center">
                             <HiMenuAlt1 size={30} />
-
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box dark:text-gray-100 dark:bg-gray-800 text-gray-800 bg-gray-300">
-
                             {navlinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl font-semibold dark:text-gray-100 text-gray-800">Undifined</a>
+                    <a className="btn btn-ghost text-2xl font-semibold dark:text-gray-100 text-gray-800">Undefined</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg font-medium dark:text-gray-100 text-gray-800">
@@ -186,12 +150,7 @@ const Navbar = () => {
                                     </button>
                                 </Link>
                             </>
-
                         }
-
-
-
-
                     </div>
                 </div>
             </div>

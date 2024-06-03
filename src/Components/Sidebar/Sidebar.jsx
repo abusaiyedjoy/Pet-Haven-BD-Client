@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { FaEnvelope, FaHome, FaSearch, FaComments } from "react-icons/fa";
+import { FaHome, FaSearch, FaComments } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
@@ -33,7 +33,7 @@ const Sidebar = () => {
             });
     }
     return (
-        <div className="h-full p-3 min-h-screen space-y-2 w-60 dark:bg-sky-400 dark:text-gray-800">
+        <div className="h-full p-3 min-h-screen shadow-2xl space-y-2 w-60 bg-white text-black dark:bg-gray-600 dark:text-gray-200">
             <div className="flex items-center p-2 space-x-4">
                 <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
                 <div>
@@ -54,15 +54,39 @@ const Sidebar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/cart" className="flex items-center p-2 space-x-3 rounded-md">
-                            <FaSearch />
-                            <span>My Cart</span>
+                        <NavLink to="/dashboard/addPets" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaHome />
+                            <span>Add a Pet</span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard/payment" className="flex items-center p-2 space-x-3 rounded-md">
+                        <NavLink to="/dashboard/addedPets" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaSearch />
+                            <span>My Added Pets</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/adoption" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaSearch />
+                            <span>Adoption Request</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/campaign" className="flex items-center p-2 space-x-3 rounded-md">
                             <FaComments />
-                            <span>Chart</span>
+                            <span>Create Donation Campaign</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/myCampaign" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaComments />
+                            <span>My Donation Campaigns</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard/myDonation" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaComments />
+                            <span>My Donations</span>
                         </NavLink>
                     </li>
                 </ul>
@@ -72,12 +96,6 @@ const Sidebar = () => {
                         <NavLink to="/" className="flex items-center gap-2">
                             <FaHome />
                             Home
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/contact" className="flex items-center gap-2">
-                            <FaEnvelope />
-                            <span>Contact</span>
                         </NavLink>
                     </li>
                     <li>
