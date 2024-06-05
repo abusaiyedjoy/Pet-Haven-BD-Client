@@ -6,6 +6,12 @@ import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 
+
+
+// TODO: Make sure to implement jwt on login and store the access_token of the user in either localStorage or cookies.
+
+
+
 const SignIn = ({ switchToSignUp }) => {
     const {signInUser}=useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm();

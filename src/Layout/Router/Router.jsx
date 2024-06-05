@@ -8,6 +8,7 @@ import UserHome from "../../Pages/Dashboard/UserHome";
 import MyCart from "../../Pages/Dashboard/MyCart";
 import Payment from "../../Pages/Dashboard/Payment";
 import PrivateRoute from './../PrivateRoute/PrivateRoute';
+import AllPets from "../../Pages/Home/AllPets/AllPets";
 
 
 
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
         {
             index: true,
             element: <Home></Home>
+        },
+        {
+            path: "allPets",
+            element: <AllPets></AllPets>
         },
       ]
     },

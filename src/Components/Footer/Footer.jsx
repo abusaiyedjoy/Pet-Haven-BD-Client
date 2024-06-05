@@ -8,8 +8,9 @@ const Footer = () => {
                 <div className="lg:flex">
                     <div className="w-full -mx-6 lg:w-2/5">
                         <div className="px-6 dark:text-gray-100 text-gray-800">
-                            <div className="flex justify-start items-center gap-2">
-                                <p className="text-4xl font-bold text-sky-600">Flavor Fleet</p>
+                            <div className="flex justify-start items-center mb-5 gap-2">
+                                <img className="w-12 h-12" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
+                                <p className="text-4xl font-bold text-[#0CC0DF]">Pet Haven BD</p>
                             </div>
 
                             <p className="max-w-sm ">

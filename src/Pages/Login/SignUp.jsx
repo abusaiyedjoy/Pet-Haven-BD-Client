@@ -6,6 +6,16 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from './../../Hooks/useAuth';
 import toast from "react-hot-toast";
 
+
+//1. TODO: Update Profile by image input fields 
+//2. TODO: Two aditional input fields
+//3. After successfully registering, save the information of the user such as name and
+// email in the database and store additional property named role. Default role will be
+// user
+// 4. Admin can make any other user admin from admin dashboard
+// 5. There should be 2 roles for the users. admin and user
+
+
 const SignUp = ({ switchToSignIn }) => {
     const { createUser, updateUserProfile } = useAuth()
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();

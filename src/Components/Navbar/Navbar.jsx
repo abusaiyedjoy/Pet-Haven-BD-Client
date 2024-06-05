@@ -39,7 +39,7 @@ const Navbar = () => {
     const navlinks = (
         <>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/allPet">Pet Listing</NavLink></li>
+            <li><NavLink to="/allPets">Pet Listing</NavLink></li>
             <li><NavLink to="/services">Services</NavLink></li>
             <li><NavLink to="/about">About Us</NavLink></li>
             <li><NavLink to="/campains">Donation Campains</NavLink></li>
@@ -59,8 +59,10 @@ const Navbar = () => {
                             {navlinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl font-semibold dark:text-gray-100 text-gray-800">Undefined</a>
-                </div>
+                    <div className="flex justify-start items-center pb-6 gap-2">
+                        <img className="w-12 h-12" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
+                        <p className="text-4xl font-bold text-[#0CC0DF]">Pet Haven BD</p>
+                    </div>                </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg font-medium dark:text-gray-100 text-gray-800">
                         {navlinks}

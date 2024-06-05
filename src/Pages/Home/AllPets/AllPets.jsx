@@ -2,6 +2,13 @@
 import Header from "../../Header/Header";
 import { IoLocation } from "react-icons/io5";
 
+
+
+// TODO: All the cards will be shown sorted by date in descending order
+
+
+
+
 const AllPets = () => {
     return (
         <section className="pt-4 pb-16 bg-sky-100 dark:bg-gray-800">
