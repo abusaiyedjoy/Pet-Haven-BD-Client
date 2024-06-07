@@ -1,4 +1,4 @@
-
+// footer components
 
 
 const Footer = () => {
