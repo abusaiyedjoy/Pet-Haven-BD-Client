@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unknown-property */
+import { Link } from "react-router-dom";
 import Header from "../../Header/Header";
 import { IoLocation } from "react-icons/io5";
 
@@ -11,13 +12,13 @@ import { IoLocation } from "react-icons/io5";
 
 const AllPets = () => {
     return (
-        <section className="pt-4 pb-16 bg-sky-100 dark:bg-gray-800">
+        <section className="pt-4 pb-16 bg-gray-100 dark:bg-gray-800">
             <Header
                 Heading={"🐕Choose Favourite Pets for Adoption🐕"}
             ></Header>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-                <div className="w-full relative max-w-sm hover:scale-105 transition-transform overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900">
+                <Link to="/petDetails" className="w-full relative max-w-sm hover:scale-105 transition-transform overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900">
                     <div className="relative">
                         <img className="object-cover object-center p-2 w-full h-60 rounded-xl" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="avatar" />
 
@@ -41,7 +42,7 @@ const AllPets = () => {
                             <h1 className="text-xl mb-2 font-medium">Neutered/Spayed:</h1>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </section>
     );

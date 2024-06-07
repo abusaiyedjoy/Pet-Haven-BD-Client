@@ -17,6 +17,7 @@ import PetListing from './../../Pages/PetListing/PetListing';
 import Services from './../../Pages/Service/Services';
 import About from './../../Pages/About/About';
 import Campaign from './../../Pages/Campaign/Campaign';
+import PetDetails from "../Pet Details/PetDetails";
 
 
 
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
         {
             path: "petListing",
             element: <PetListing></PetListing>
+        },
+        {
+            path: "petDetails",
+            element: <PrivateRoute><PetDetails></PetDetails></PrivateRoute>
         },
         {
             path: "services",

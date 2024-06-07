@@ -20,12 +20,12 @@ const PetListing = () => {
         setDropdownOpen(!dropdownOpen);
     };
     return (
-        <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+        <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-800'}`}>
             <Cover
                 image={'https://i.ibb.co/WzqTDHt/lily-banse-YHSwy6uqvk-unsplash.jpg'}
                 title={"Pet Listing"}
             />
-            <div className="my-8">
+            <div className="mt-8">
                 <form className="max-w-lg mx-auto">
                     <div className="flex items-center border-4 border-sky-500 rounded-xl">
                         <div className="relative">
@@ -105,6 +105,26 @@ const PetListing = () => {
                 </form>
             </div>
             <AllPets></AllPets>
+            <div
+                className="hero w-full h-[550px] relative"
+                style={{
+                    backgroundImage: "url(https://dm6g3jbka53hp.cloudfront.net/static-images/adopt-love-20210430.svg)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                <div className="hero-content inset-0 flex justify-between items-center w-full absolute z-50 text-center text-neutral-content">
+                    <div className="h-[50%] w-[40%]">
+                        <img src="https://dm6g3jbka53hp.cloudfront.net/static-images/adopt-dont-shop-thepetnest.svg" alt="" />
+                    </div>
+                    <div className="text-white max-w-2xl">
+                        <h1 className="text-5xl mb-3 font-bold">#AdoptLove</h1>
+                        <p className="text-lg text-white font-medium ">
+                            Approximately 1478 dogs & cats die every day on road in India. ThePetNest is on a mission to provide every dog and cat a home before 2035. It’s just one of the many ways ThePetNest! gives back and helps you become a part of something larger. Join ThePetStar Community and help setting up Pet houses in your surrounding for strays.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };
