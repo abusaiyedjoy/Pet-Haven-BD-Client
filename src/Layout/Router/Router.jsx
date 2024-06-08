@@ -18,6 +18,7 @@ import Services from './../../Pages/Service/Services';
 import About from './../../Pages/About/About';
 import Campaign from './../../Pages/Campaign/Campaign';
 import PetDetails from "../Pet Details/PetDetails";
+import DonationDetailsPage from "../../Pages/Campaign/DonationDetails/DonationDetails";
 
 
 
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
         {
             path: "campains",
             element: <Campaign></Campaign>
+        },
+        {
+            path: "donation",
+            element: <DonationDetailsPage></DonationDetailsPage>
         },
       ]
     },

@@ -8,7 +8,7 @@ const Services = () => {
     return (
         <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
             <Cover
-                image={'https://i.ibb.co/WzqTDHt/lily-banse-YHSwy6uqvk-unsplash.jpg'}
+                image={'https://i.ibb.co/LJkTJrb/malek-dridi-0-F7-GRXNOG7g-unsplash.jpg'}
                 title={"Services"}
             />
 
