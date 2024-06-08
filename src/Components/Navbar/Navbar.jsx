@@ -50,25 +50,26 @@ const Navbar = () => {
     return (
         <div className="h-16 shadow-2xl bg-gray-200 dark:bg-gray-800">
             <div className="flex justify-between items-center h-full px-4">
-                <div className="navbar-start w-auto">
+                <div className="navbar-start w-auto flex justify-center items-center gap-2">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden flex justify-center items-center">
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-gray-800 dark:text-gray-200 p-0 flex justify-center items-center">
                             <HiMenuAlt1 size={30} />
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box dark:text-gray-100 dark:bg-gray-800 text-gray-800 bg-gray-300">
                             {navlinks}
                         </ul>
                     </div>
-                    <div className="flex justify-start items-center pb-6 gap-2">
-                        <img className="w-12 h-12" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
-                        <p className="text-4xl font-bold text-[#0CC0DF]">Pet Haven BD</p>
-                    </div>                </div>
+                    <div className="flex justify-start items-center gap-2">
+                        <img className="w-8 h-8 xl:w-10 xl:h-10" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
+                        <p className="text-2xl xl:text-4xl font-bold xl:font-bold text-[#0CC0DF]">Pet Haven BD</p>
+                    </div>                
+                </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 text-lg font-medium dark:text-gray-100 text-gray-800">
+                    <ul className="menu menu-horizontal px-1 text-md xl:text-lg font-medium dark:text-gray-100 text-gray-800">
                         {navlinks}
                     </ul>
                 </div>
-                <div className="flex justify-between items-center gap-5">
+                <div className="flex justify-between items-center gap-3 md:gap-5">
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
                             <div className="indicator">

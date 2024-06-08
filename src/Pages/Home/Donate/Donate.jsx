@@ -1,7 +1,7 @@
 
 const Donate = () => {
     return (
-        <div className="relative flex justify-center items-center py-20 rounded-lg bg-white">
+        <div className="relative flex justify-center items-center rounded-lg bg-white">
             <video autoPlay loop muted playsInline className="w-full h-auto rounded-lg shadow-lg">
                 <source src="https://videos.ctfassets.net/gynu23gx3hnw/3TcnKUPCircPk3raaa1kh9/64c4cf3de068c13b610c4d7eeb3ab102/Web_looping_video_5_sec_compressed.mp4" type="video/mp4" />
                 Your browser does not support the video tag.

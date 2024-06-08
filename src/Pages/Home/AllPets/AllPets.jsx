@@ -12,10 +12,12 @@ const AllPets = () => {
 
     const handleNextPage = () => {
         setPage((prevPage) => prevPage + 1);
+        window.scrollTo(0, 0);
     };
 
     const handlePreviousPage = () => {
         setPage((prevPage) => Math.max(prevPage - 1, 1));
+        window.scrollTo(0, 0);
     };
 
     return (
@@ -26,9 +28,9 @@ const AllPets = () => {
                 <LoadingSpinner />
             ) : (
                 <>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center items-center justify-items-center" >
                         {pets.map((pet) => (
-                            <Link state={pet} to={`/petDetails/${pet._id}`} key={pet._id} className="w-full relative max-w-sm hover:scale-105 transition-transform overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900">
+                            <Link state={pet} to={`/petDetails/${pet._id}`} key={pet._id} className=" relative max-w-md hover:scale-105 transition-transform overflow-hidden w-[95vw] bg-white rounded-lg shadow-lg dark:bg-gray-900">
                                 <div className="relative">
                                     <img className="object-cover object-center p-2 w-full h-60 rounded-xl" src={pet.pet_image} alt={pet.pet_name} />
                                     <div className="absolute items-center px-2 rounded-xl bottom-4 left-4 py-1 text-white bg-sky-600">
