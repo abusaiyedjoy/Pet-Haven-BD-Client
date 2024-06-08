@@ -28,7 +28,7 @@ const AllPets = () => {
                 <>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 p-4">
                         {pets.map((pet) => (
-                            <Link to={`/petDetails/${pet._id}`} key={pet._id} className="w-full relative max-w-sm hover:scale-105 transition-transform overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900">
+                            <Link state={pet} to={`/petDetails/${pet._id}`} key={pet._id} className="w-full relative max-w-sm hover:scale-105 transition-transform overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-900">
                                 <div className="relative">
                                     <img className="object-cover object-center p-2 w-full h-60 rounded-xl" src={pet.pet_image} alt={pet.pet_name} />
                                     <div className="absolute items-center px-2 rounded-xl bottom-4 left-4 py-1 text-white bg-sky-600">
