@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import PropTypes from 'prop-types';
@@ -41,7 +42,7 @@ const CheckoutForm = ({ campaignId, closeModal }) => {
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          className="border p-2 rounded mb-4 w-full"
+          className="border p-2 rounded mb-4 w-full text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700"
           required
           min="1"
         />

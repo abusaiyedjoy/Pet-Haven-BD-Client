@@ -3,6 +3,7 @@ import ThemeContext from "../../Hooks/ThemeContext";
 import Cover from "../../Layout/Cover/Cover";
 import DonationCampaignCard from './DonationCampaignCard';
 import LoadingSpinner from '../../Components/Shared/Loading';
+import Header from '../Header/Header';
 
 const donationCampaigns = [
   {
@@ -29,7 +30,38 @@ const donationCampaigns = [
     donatedAmount: 150,
     date: '2023-06-03',
   },
-  // Add more campaigns as needed
+  {
+    id: 4,
+    petName: "Bella",
+    petImage: "https://example.com/bella.jpg",
+    maxDonationAmount: 180,
+    donatedAmount: 130,
+    date: '2023-06-04',
+  },
+  {
+    id: 2,
+    petName: "Sasha",
+    petImage: "https://example.com/sasha.jpg",
+    maxDonationAmount: 150,
+    donatedAmount: 100,
+    date: '2023-06-02',
+  },
+  {
+    id: 3,
+    petName: "Max",
+    petImage: "https://example.com/max.jpg",
+    maxDonationAmount: 200,
+    donatedAmount: 150,
+    date: '2023-06-03',
+  },
+  {
+    id: 4,
+    petName: "Bella",
+    petImage: "https://example.com/bella.jpg",
+    maxDonationAmount: 180,
+    donatedAmount: 130,
+    date: '2023-06-04',
+  },
 ];
 
 const sortedCampaigns = donationCampaigns.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -44,24 +76,26 @@ const DonationCampaignsPage = () => {
     const loadCampaigns = () => {
       setLoading(true);
       setTimeout(() => {
-        setCampaigns(sortedCampaigns.slice(0, page * 3)); // Load 3 campaigns per page
+        setCampaigns(sortedCampaigns.slice(0, page * 3));
         setLoading(false);
-      }, 1000); // Simulating network delay
+      }, 1000);
     };
 
     loadCampaigns();
   }, [page]);
 
   const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 1) {
       setPage(prevPage => prevPage + 1); // Load next page of campaigns when scrolled to bottom
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    const debouncedHandleScroll = debounce(handleScroll, 200);
+
+    window.addEventListener('scroll', debouncedHandleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', debouncedHandleScroll);
     };
   }, []);
 
@@ -72,16 +106,26 @@ const DonationCampaignsPage = () => {
         title={"Donation Campaign"}
       />
       <div className="container mx-auto">
-        <h1 className="text-3xl font-semibold my-4">Donation Campaigns</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <Header Heading={"🐕All the Donation Campaigns🐕"}></Header>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {campaigns.map(campaign => (
             <DonationCampaignCard key={campaign.id} campaign={campaign} />
           ))}
-          {loading && <LoadingSpinner></LoadingSpinner>}
+          {loading && <LoadingSpinner />}
         </div>
       </div>
     </div>
   );
 };
+
+// Debounce function to limit how often a function can be called
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
+  };
+}
 
 export default DonationCampaignsPage;
