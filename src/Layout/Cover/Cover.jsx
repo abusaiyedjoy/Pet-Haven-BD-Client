@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
-const Cover = ({ image, title }) => {
+const Cover = ({header,heading, image, title }) => {
     return (
         <>
             <div
@@ -14,8 +14,9 @@ const Cover = ({ image, title }) => {
                 }}
             >
                 <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md text-white">
-                        <h1 className="mb-5 text-5xl font-bold text-main">Pet Haven BD</h1>
+                    <div className="max-full text-white">
+                        <h1 className="mb-5 text-5xl font-bold text-main">{header ? header : "Pet Haven BD" }</h1>
+                        <h1 className="mb-5 text-2xl font-medium text-main">{heading }</h1>
                         <button className="text-lg font-bold">
                             <Link to="/" className="text-main hover:text-[#b19455]">
                                 Home 
