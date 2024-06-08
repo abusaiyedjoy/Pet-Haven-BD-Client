@@ -6,9 +6,11 @@ const Cover = ({ image, title }) => {
     return (
         <>
             <div
-                className="hero w-full h-96 opacity-90"
+                className="hero w-full h-96 opacity-90 object-cover"
                 style={{
-                    backgroundImage: `url(${image})`,
+                    backgroundImage: `url(${image})`, 
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",                   
                 }}
             >
                 <div className="hero-content text-center text-neutral-content">
@@ -16,9 +18,9 @@ const Cover = ({ image, title }) => {
                         <h1 className="mb-5 text-5xl font-bold text-main">Pet Haven BD</h1>
                         <button className="text-lg font-bold">
                             <Link to="/" className="text-main hover:text-[#b19455]">
-                                Home
+                                Home 
                             </Link>
-                            || {title}
+                             || {title}
                         </button>
                     </div>
                 </div>

@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from './../../Hooks/useAuth';
 import toast from "react-hot-toast";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 
 //1. TODO: Update Profile by image input fields 
@@ -140,20 +140,16 @@ const SignUp = ({ switchToSignIn }) => {
                     </form>
 
                     <div className="flex items-center pt-4 w-full">
-                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
+                        <div className="flex-1 h-px sm:w-16 bg-gray-700 dark:bg-gray-300"></div>
                         <p className="px-3 text-md dark:text-gray-200">Login with social accounts</p>
-                        <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
+                        <div className="flex-1 h-px sm:w-16 bg-gray-700 dark:bg-gray-300"></div>
                     </div>
 
 
                     {/* Google Authentication */}
 
-                    <div className="flex justify-center w-full mt-5">
-                        <button aria-label="Login with Google" type="button" className="flex justify-center cursor-pointer items-center rounded-full w-full text-center px-9 py-3 text-lg gap-3 font-mono font-semibold text-sky-600 hover:text-white border-2 border-sky-600
-                         transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-sky-600 duration-300  focus:bg-transparent">
-                            <FcGoogle size={25} />
-                            <p>Login with Google</p>
-                        </button>
+                    <div className="flex justify-center w-full">
+                        <SocialLogin></SocialLogin>
                     </div>
                     <div className="mt-6 text-center ">
                         <a href="#" className="text-sm text-sky-500 dark:text-sky-400">
