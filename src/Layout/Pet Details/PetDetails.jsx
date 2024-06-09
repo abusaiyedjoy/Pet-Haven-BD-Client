@@ -61,7 +61,7 @@ const PetDetails = () => {
             <h1 className="text-5xl font-bold text-center my-5 text-gray-700 dark:text-gray-100">Adopt {petData?.pet_name}</h1>
             <div className="flex justify-between items-center my-4 w-[80%] mx-auto">
                 <a className="text-2xl font-medium text-gray-700 dark:text-gray-100 hover:text-sky-500 hover:underline cursor-pointer" onClick={handleGoBack}>Go Back</a>
-                <h1 className="text-xl font-medium text-gray-700 dark:text-gray-100">Posted On:</h1>
+                <h1 className="text-xl font-medium text-gray-700 dark:text-gray-100">Posted On: {petData?.dateAdded}</h1>
             </div>
             <img className="object-cover object-center rounded-xl w-[70%] mx-auto h-[700px] " src={petData?.pet_image} alt="avatar" />
 
@@ -69,14 +69,14 @@ const PetDetails = () => {
                 <div className="divider my-8"></div>
                 <h1 className="text-5xl font-bold text-center mb-3 text-gray-700 dark:text-gray-100">Fact's About Me!</h1>
 
-                <div className="px-6 py-4 bg-white text-gray-800 grid grid-cols-1 sm:grid-cols-2 w-full mx-auto">
+                <div className="px-6 py-4 bg-white dark:bg-gray-800 text-gray-800 grid grid-cols-1 sm:grid-cols-2 w-full mx-auto">
                     <h1 className="flex items-center mt-4 text-gray-800 text-2xl font-bold dark:text-gray-200 ">Age: {petData?.pet_age}</h1>
                     <p className="py-2 flex items-center mt-4 text-gray-800 text-2xl font-bold dark:text-gray-200">Color: {petData?.pet_color}</p>
-                    <div className="flex items-center mt-4 text-gray-800 text-2xl font-bold dark:text-gray-200">
-                        <h1 className="text-gray-800">Gender: {petData?.pet_gender}</h1>
+                    <div className="flex items-center mt-4">
+                        <h1 className="text-gray-800 text-2xl font-bold dark:text-gray-200">Gender: {petData?.pet_gender}</h1>
                     </div>
-                    <div className="flex items-center mt-4 text-gray-800 text-2xl font-bold dark:text-gray-200">
-                        <h1 className="text-gray-800">Vaccinated: {petData?.vaccinated ? 'Yes' : 'No'}</h1>
+                    <div className="flex items-center mt-4">
+                        <h1 className="text-gray-800 text-2xl font-bold dark:text-gray-200">Vaccinated: {petData?.vaccinated ? 'Yes' : 'No'}</h1>
                     </div>
                     <div className="flex items-center mt-4 text-gray-800">
                         <h1 className="text-gray-800 text-2xl font-bold dark:text-gray-200">Neutered/Spayed: {petData?.neutered_spayed ? 'Yes' : 'No'}</h1>
@@ -93,11 +93,10 @@ const PetDetails = () => {
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box bg-white dark:bg-gray-800">
                             <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
-                            <h1 className="text-3xl font-bold text-center mb-3 text-gray-700 dark:text-gray-100">My Info {user?.displayName}!</h1>
-                            <div className="px-6 py-4 bg-white text-gray-800 grid grid-cols-1 gap-8 w-full mx-auto">
+                            <h1 className="text-3xl font-bold text-center mb-3 text-gray-700 dark:text-gray-100">{user?.displayName} Info!</h1>
+                            <div className="px-6 py-4 bg-white dark:bg-gray-800 text-gray-800 grid grid-cols-1 gap-8 w-full mx-auto">
                                 <div>
                                     <label className="block mt-4 text-gray-800 text-xl font-bold dark:text-gray-200">Full Name:</label>
                                     <input
