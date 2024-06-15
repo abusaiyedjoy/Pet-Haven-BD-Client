@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 
 const Sidebar = () => {
+    const isAdmin = true;
     const { signOutUser } = useAuth()
     const navigate = useNavigate()
     const handleSignOut = () => {
@@ -47,12 +48,29 @@ const Sidebar = () => {
 
 
                 <ul className="pt-2 pb-4 menu space-y-1 text-lg">
-                    <li>
-                        <NavLink to="/dashboard/userHome" className="flex items-center p-2 space-x-3 rounded-md">
+                    {
+                        isAdmin ? <>
+                        <li>
+                        <NavLink to="/dashboard/users" className="flex items-center p-2 space-x-3 rounded-md">
                             <FaHome />
-                            <span>Dashboard</span>
+                            <span>All Users</span>
                         </NavLink>
                     </li>
+                        <li>
+                        <NavLink to="/dashboard/pets" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaHome />
+                            <span>All Pets</span>
+                        </NavLink>
+                    </li>
+                        <li>
+                        <NavLink to="/dashboard/donations" className="flex items-center p-2 space-x-3 rounded-md">
+                            <FaHome />
+                            <span>All Donations</span>
+                        </NavLink>
+                    </li>
+                        </>
+                        :
+                        <>
                     <li>
                         <NavLink to="/dashboard/addPets" className="flex items-center p-2 space-x-3 rounded-md">
                             <FaHome />
@@ -89,6 +107,8 @@ const Sidebar = () => {
                             <span>My Donations</span>
                         </NavLink>
                     </li>
+                        </>
+                    }
                 </ul>
 
                 <ul className="pt-2 pb-4 space-y-5 pl-4 text-lg">
