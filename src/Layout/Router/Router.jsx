@@ -19,6 +19,7 @@ import About from './../../Pages/About/About';
 import Campaign from './../../Pages/Campaign/Campaign';
 import PetDetails from "../Pet Details/PetDetails";
 import DonationDetailsPage from "../../Pages/Campaign/DonationDetails/DonationDetails";
+import AllUsers from "../../Pages/Dashboard/AdminPage/AllUsers";
 
 
 
@@ -103,6 +104,13 @@ export const router = createBrowserRouter([
           path: 'myCampaign',
           element: <MyCampaign></MyCampaign>
         },
+
+        // Admin Route Manage
+
+        {
+          path: "users",
+          element: <AllUsers></AllUsers>
+        }
       ]
 
     },

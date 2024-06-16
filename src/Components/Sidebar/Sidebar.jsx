@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { FaHome, FaSearch, FaComments } from "react-icons/fa";
+import { FaHome, FaSearch, FaComments, FaUser } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Sidebar = () => {
     const isAdmin = true;
-    const { signOutUser } = useAuth()
+    const { signOutUser, user } = useAuth()
     const navigate = useNavigate()
     const handleSignOut = () => {
         signOutUser()
@@ -38,7 +38,7 @@ const Sidebar = () => {
             <div className="flex items-center p-2 space-x-4">
                 <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
                 <div>
-                    <h2 className="text-xl font-semibold">Leroy Jenkins</h2>
+                    <h2 className="text-xl font-semibold">{user?.displayName}</h2>
                     <span className="flex items-center space-x-1">
                         <a className="text-sm hover:underline dark:text-gray-600">View profile</a>
                     </span>
@@ -52,7 +52,7 @@ const Sidebar = () => {
                         isAdmin ? <>
                         <li>
                         <NavLink to="/dashboard/users" className="flex items-center p-2 space-x-3 rounded-md">
-                            <FaHome />
+                            <FaUser />
                             <span>All Users</span>
                         </NavLink>
                     </li>
