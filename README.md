@@ -1,8 +1,18 @@
-# React + Vite
+# [See Demo](https://mern-stack-project-f5505.web.app/ "The best search engine for privacy")
+# Website Description || Overview
+## This is a Pet Adoption Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Website Feature : User =>
 
-Currently, two official plugins are available:
+- ### User Can Review Pets And Add Chosen Pets To WishList.
+- ### User Can Offer A Pets But The Price Should Be within User Price Range.
+- ### User Can Pay For Their Pets And Them see All of their Offered Pets On the Bought Pets Page.
+- ### User Can See All Of their Review on the MY review Section They Can Delete The Review If they want.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# Website Feature : Admin =>
+
+- ###  Admin Can Manage Pets Added By the User From Manage Pets Section;
+- ###  If A Admin Accept A Pets only Then The Pets Will show on the All Pets Page.
+- ###  Admin Can Manage Review Added By the User And Delete Them if want.
+- ###  Admin can manage User make a User fraud make a user User or admin delete user from manage user routes.
