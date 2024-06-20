@@ -6,7 +6,7 @@ const Cover = ({header,heading, image, title }) => {
     return (
         <>
             <div
-                className="hero w-full h-96 opacity-90 object-cover"
+                className="hero w-full h-96 opacity-80 object-cover"
                 style={{
                     backgroundImage: `url(${image})`, 
                     backgroundSize: "cover",

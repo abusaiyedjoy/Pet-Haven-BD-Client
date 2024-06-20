@@ -2,17 +2,21 @@ import { useQuery } from "@tanstack/react-query";
 import { FaTrashAlt, FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from './../../../Hooks/useAxiosSecure';
+import LoadingSpinner from "../../../Components/Shared/Loading";
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [], isLoading, refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users');
+            console.log("Users:",res.data);
             return res.data;
         }
     });
+
+    console.log("All Users:", users);
 
     const handleMakeAdmin = (user) => {
         axiosSecure.patch(`/users/admin/${user._id}`)
@@ -55,7 +59,9 @@ const AllUsers = () => {
             }
         });
     };
-
+    if (isLoading) {
+        return <LoadingSpinner></LoadingSpinner>;
+      }
     return (
         <div>
             <div className="flex justify-evenly my-4">
@@ -105,5 +111,3 @@ const AllUsers = () => {
 };
 
 export default AllUsers;
-
-

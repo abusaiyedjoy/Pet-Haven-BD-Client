@@ -4,6 +4,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import DonationCampaignCard from '../DonationCampaignCard';
 import ThemeContext from '../../../Hooks/ThemeContext';
 import CheckoutForm from './ChackoutFrom';
+import { useLocation } from 'react-router-dom';
 
 const donationCampaigns = [
   {
@@ -33,10 +34,10 @@ const donationCampaigns = [
 const stripePromise = loadStripe('your-public-key-here');
 
 const DonationDetailsPage = () => {
+  const { state: campaign } = useLocation()
   const { theme } = useContext(ThemeContext);
   // const { id } = useParams();
-  const id = null;
-  const campaign = donationCampaigns.find(c => c.id === parseInt(id));
+  // const campaign = donationCampaigns.find(c => c.id === parseInt(id));
 
   // eslint-disable-next-line no-unused-vars
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -55,7 +56,7 @@ const DonationDetailsPage = () => {
     <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
       <div className="container mx-auto pt-10">
         <div className="flex flex-col justify-center items-center h-[70vh] w-full mx-auto">
-          <div className="w-full lg:w-[80%] h-96 bg-gray-700 bg-center bg-cover rounded-xl shadow-md" style={{ backgroundImage: `url(${campaign?.petImage})` }}></div>
+          <div className="w-full lg:w-[80%] h-96 bg-gray-700 bg-center bg-cover object-cover rounded-xl shadow-md" style={{ backgroundImage: `url(${campaign?.petImage})` }}></div>
 
           <div className="w-[50%] -mt-10 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
             <h3 className="py-2 text-3xl font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">Name: {campaign?.petName}</h3>

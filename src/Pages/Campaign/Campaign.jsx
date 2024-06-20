@@ -7,62 +7,38 @@ import Header from '../Header/Header';
 
 const donationCampaigns = [
   {
-    id: 1,
-    petName: "Buddy",
-    petImage: "https://example.com/buddy.jpg",
-    maxDonationAmount: 100,
-    donatedAmount: 50,
-    date: '2023-06-01',
+  id: 1,
+  petName: "Buddy",
+  petImage: "https://i.ibb.co/qr5v4Lt/alvan-nee-eoqnr8ikw-FE-unsplash.jpg",
+  maxDonationAmount: 100,
+  donatedAmount: 50,
+  date: '2023-06-01',
   },
   {
-    id: 2,
-    petName: "Sasha",
-    petImage: "https://example.com/sasha.jpg",
-    maxDonationAmount: 150,
-    donatedAmount: 100,
-    date: '2023-06-02',
+  id: 2,
+  petName: "Sasha",
+  petImage: "https://i.ibb.co/VJ2MjHk/sandy-millar-k-KAa-Ce-Gf5w-Y-unsplash.jpg",
+  maxDonationAmount: 150,
+  donatedAmount: 100,
+  date: '2023-06-02',
   },
   {
-    id: 3,
-    petName: "Max",
-    petImage: "https://example.com/max.jpg",
-    maxDonationAmount: 200,
-    donatedAmount: 150,
-    date: '2023-06-03',
+  id: 3,
+  petName: "Max",
+  petImage: "https://i.ibb.co/NTcPg0g/luiza-sayfullina-9giow4j-Xrz-M-unsplash.jpg",
+  maxDonationAmount: 200,
+  donatedAmount: 150,
+  date: '2023-06-03',
   },
   {
-    id: 4,
-    petName: "Bella",
-    petImage: "https://example.com/bella.jpg",
-    maxDonationAmount: 180,
-    donatedAmount: 130,
-    date: '2023-06-04',
-  },
-  {
-    id: 2,
-    petName: "Sasha",
-    petImage: "https://example.com/sasha.jpg",
-    maxDonationAmount: 150,
-    donatedAmount: 100,
-    date: '2023-06-02',
-  },
-  {
-    id: 3,
-    petName: "Max",
-    petImage: "https://example.com/max.jpg",
-    maxDonationAmount: 200,
-    donatedAmount: 150,
-    date: '2023-06-03',
-  },
-  {
-    id: 4,
-    petName: "Bella",
-    petImage: "https://example.com/bella.jpg",
-    maxDonationAmount: 180,
-    donatedAmount: 130,
-    date: '2023-06-04',
-  },
-];
+  id: 4,
+  petName: "Bella",
+  petImage: "https://i.ibb.co/r08Yvv8/juan-manuel-sanchez-egk9u-Kao-Nng-unsplash.jpg",
+  maxDonationAmount: 180,
+  donatedAmount: 130,
+  date: '2023-06-04',
+  }
+  ];
 
 const sortedCampaigns = donationCampaigns.sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -100,9 +76,9 @@ const DonationCampaignsPage = () => {
   }, []);
 
   return (
-    <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+    <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-900 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
       <Cover
-        image={'https://i.ibb.co/WzqTDHt/lily-banse-YHSwy6uqvk-unsplash.jpg'}
+        image={'https://i.ibb.co/G2MpKkJ/aswathy-n-sr-MHHWCTvc-U-unsplash.jpg'}
         title={"Donation Campaign"}
       />
       <div className="container mx-auto">
