@@ -28,7 +28,7 @@ const AllPets = () => {
                 <LoadingSpinner />
             ) : (
                 <>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center items-center justify-items-center" >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5 justify-center items-center justify-items-center" >
                         {pets.map((pet) => (
                             <Link state={pet} to={`/petDetails/${pet._id}`} key={pet._id} className=" relative max-w-md hover:scale-105 transition-transform overflow-hidden w-[95vw] bg-white rounded-lg shadow-lg dark:bg-gray-900">
                                 <div className="relative">

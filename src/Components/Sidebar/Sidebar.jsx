@@ -6,7 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
 const Sidebar = () => {
-    const isAdmin = true;
+    const isAdmin = false;
     const { signOutUser, user } = useAuth();
     const navigate = useNavigate();
     

@@ -70,7 +70,7 @@ const AddPets = () => {
 
     const onSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-            await axios.post('http://localhost:5000/pets', values);
+            await axios.post('https://pet-haven-bd-server-one.vercel.app/pets', values);
             resetForm();
             setImageUrl('');
             toast.success('The pet has been added successfully!');
