@@ -38,7 +38,7 @@ const SignIn = ({ switchToSignUp }) => {
 
 
         <div className="lg:w-2/3 xl:w-full mt-12 container p-4 mx-auto">
-            <h1 className="text-3xl mb-6 font-bold text-center text-sky-500">❣ Please Sign In ❣</h1>
+            <h1 className="text-3xl mb-6 font-bold text-center text-[#2E256F]">❣ Please Sign In ❣</h1>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 text-gray-900">
                 <div className="">
                     <label htmlFor="Your Email" className="block text-lg mt-3 dark:text-gray-200">Your Email:</label>
@@ -85,11 +85,11 @@ const SignIn = ({ switchToSignUp }) => {
                 <div className="flex-1 h-px sm:w-16 bg-gray-700 dark:bg-gray-300"></div>
             </div>
             {/* Google Authentication */}
-            <div>               
-            <SocialLogin></SocialLogin>
+            <div>
+                <SocialLogin></SocialLogin>
             </div>
             <p className="text-sm mt-5 text-center sm:px-6 text-gray-900 dark:text-gray-200">Don't have an account?
-                <Link onClick={switchToSignUp} className="text-md text-sky-500 uppercase dark:text-sky-400 hover:underline"> sign up</Link>
+                <Link onClick={switchToSignUp} className="text-md text-[#2E256F] uppercase dark:text-[#2E256F] hover:underline"> sign up</Link>
             </p>
 
         </div>

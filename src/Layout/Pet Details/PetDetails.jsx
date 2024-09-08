@@ -51,7 +51,7 @@ const PetDetails = () => {
         return <div className="w-full mx-auto overflow-hidden bg-white dark:bg-gray-800">
             <h1 className="text-5xl font-bold text-center my-5 text-gray-700 dark:text-gray-100">Pet not found</h1>
             <div className="flex justify-center items-center my-4">
-                <a className="text-2xl font-medium text-gray-700 dark:text-gray-100 hover:text-sky-500 hover:underline cursor-pointer" onClick={handleGoBack}>Go Back</a>
+                <a className="text-2xl font-medium text-gray-700 dark:text-gray-100 hover:text-[#2E256F] hover:underline cursor-pointer" onClick={handleGoBack}>Go Back</a>
             </div>
         </div>;
     }
@@ -60,7 +60,7 @@ const PetDetails = () => {
         <div className="w-full mx-auto overflow-hidden bg-white dark:bg-gray-800">
             <h1 className="text-5xl font-bold text-center my-5 text-gray-700 dark:text-gray-100">Adopt {petData?.pet_name}</h1>
             <div className="flex justify-between items-center my-4 w-[80%] mx-auto">
-                <a className="text-2xl font-medium text-gray-700 dark:text-gray-100 hover:text-sky-500 hover:underline cursor-pointer" onClick={handleGoBack}>Go Back</a>
+                <a className="text-2xl font-medium text-gray-700 dark:text-gray-100 hover:text-[#2E256F] hover:underline cursor-pointer" onClick={handleGoBack}>Go Back</a>
                 <h1 className="text-xl font-medium text-gray-700 dark:text-gray-100">Posted On: {petData?.dateAdded}</h1>
             </div>
             <img className="object-cover object-center rounded-xl w-[70%] mx-auto h-[700px] " src={petData?.pet_image} alt="avatar" />
@@ -103,7 +103,7 @@ const PetDetails = () => {
                                         defaultValue={user?.displayName ? user?.displayName : 'Not Found'}
                                         type="text"
                                         className="block cursor-not-allowed mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
-                                        readOnly 
+                                        readOnly
                                     />
                                 </div>
 
@@ -113,7 +113,7 @@ const PetDetails = () => {
                                         defaultValue={user?.email}
                                         type="text"
                                         className="block mt-2 w-full cursor-not-allowed placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
-                                        readOnly 
+                                        readOnly
                                     />
                                 </div>
 

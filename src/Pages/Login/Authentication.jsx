@@ -5,7 +5,7 @@ import SignUp from "./SignUp";
 import { useState } from 'react';
 
 const Authentication = () => {
-    const [activeTab, setActiveTab]=useState(0);
+    const [activeTab, setActiveTab] = useState(0);
     return (
         <div className=" min-h-screen pt-20 bg-gray-100 overflow-hidden rounded-lg shadow-lg dark:bg-gray-800">
 
@@ -13,8 +13,8 @@ const Authentication = () => {
                 <img className="w-auto h-8 sm:h-10" src="https://merakiui.com/images/logo.svg" alt="" />
             </div>
 
-            <p className="mt-3  text-3xl font-bold text-center text-sky-500 dark:text-sky-500">
-                🥰Welcome back!🥰
+            <p className="mt-3  text-3xl font-bold text-center text-[#2E256F] dark:text-[#2E256F]">
+                Welcome back!
             </p>
             <div className="flex justify-center items-center w-full">
                 <div className="p-3 w-full sm:w-2/3 xl:w-1/3 mb-20 mx-auto">
@@ -25,10 +25,10 @@ const Authentication = () => {
                         </TabList>
 
                         <TabPanel>
-                            <SignIn switchToSignUp={()=>setActiveTab(1)}></SignIn>
+                            <SignIn switchToSignUp={() => setActiveTab(1)}></SignIn>
                         </TabPanel>
                         <TabPanel>
-                            <SignUp switchToSignIn={()=>setActiveTab(0)}></SignUp>
+                            <SignUp switchToSignIn={() => setActiveTab(0)}></SignUp>
                         </TabPanel>
                     </Tabs>
                 </div>

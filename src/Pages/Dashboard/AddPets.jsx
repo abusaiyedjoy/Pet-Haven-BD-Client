@@ -55,7 +55,7 @@ const AddPets = () => {
         const file = event.currentTarget.files[0];
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', 'your_upload_preset'); 
+        formData.append('upload_preset', 'your_upload_preset');
 
         try {
             const response = await axios.post('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', formData);
@@ -189,7 +189,7 @@ const AddPets = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="bg-sky-500 text-white px-4 py-2 rounded dark:bg-sky-700"
+                                className="bg-[#2E256F] text-white px-4 py-2 rounded dark:bg-sky-700"
                             >
                                 Submit
                             </button>

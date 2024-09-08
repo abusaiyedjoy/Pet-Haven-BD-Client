@@ -27,7 +27,7 @@ const PetListing = () => {
             />
             <div className="mt-8">
                 <form className="max-w-lg mx-auto">
-                    <div className="flex items-center border-4 border-sky-500 rounded-xl">
+                    <div className="flex items-center border-4 border-[#2E256F] rounded-xl">
                         <div className="relative">
                             <button
                                 id="dropdown-button"

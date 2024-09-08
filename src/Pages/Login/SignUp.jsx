@@ -41,11 +41,11 @@ const SignUp = ({ switchToSignIn }) => {
     return (
         <>
             <Helmet>
-                <title>Undefined | Sign Up</title>
+                <title>Pet Haven BD | Sign Up</title>
             </Helmet>
             <section className="text-gray-900 dark:bg-gray-800 lg:w-2/3 xl:w-full mt-12 container p-4 mx-auto">
                 <div className="container flex flex-col items-center justify-center px-6 mx-auto">
-                    <h1 className="text-3xl mb-6 font-bold text-center text-sky-500">❣ Please Sign Up ❣</h1>
+                    <h1 className="text-3xl mb-6 font-bold text-center text-[#2E256F]">Please Sign Up</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full ">
 
                         <div className="">
@@ -152,7 +152,7 @@ const SignUp = ({ switchToSignIn }) => {
                         <SocialLogin></SocialLogin>
                     </div>
                     <div className="mt-6 text-center ">
-                        <a href="#" className="text-sm text-sky-500 dark:text-sky-400">
+                        <a href="#" className="text-sm text-[#2E256F] dark:text-[#2E256F]">
                             Already have an account? <Link onClick={switchToSignIn} className="hover:underline text-sm"> Sign In Now</Link>
                         </a>
                     </div>

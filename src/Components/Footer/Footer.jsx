@@ -75,19 +75,19 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Company
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     community
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Careers
                                 </a>
@@ -99,19 +99,19 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Tec
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Music
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Videos
                                 </a>
@@ -123,19 +123,19 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Mega cloud
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Aperion UI
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-sky-500  hover:underline"
+                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
                                 >
                                     Meraki UI
                                 </a>
@@ -145,10 +145,10 @@ const Footer = () => {
                                 <h3 className=" font-semibold uppercase ">
                                     Contact
                                 </h3>
-                                <span className="block mt-2 text-sm hover:text-sky-500  hover:underline">
+                                <span className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline">
                                     +1 526 654 8965
                                 </span>
-                                <span className="block mt-2 text-sm hover:text-sky-500  hover:underline">
+                                <span className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline">
                                     example@email.com
                                 </span>
                             </div>
@@ -159,7 +159,7 @@ const Footer = () => {
                 <hr className="h-px my-6 bg-sky-300 border-none" />
 
                 <div>
-                    <p className="text-center text-gray-700 hover:text-sky-500 ">
+                    <p className="text-center text-gray-700 hover:text-[#2E256F] ">
                         © Brand 2020 - All rights reserved
                     </p>
                 </div>

@@ -6,7 +6,6 @@ const Category = () => {
             _id: "1314",
             category: "Cats",
             pet_image: "https://i.ibb.co/0GBjJyk/icons8-cat-96.png",
-
             pathName: "cat"
         },
         {
@@ -44,7 +43,7 @@ const Category = () => {
 
                 <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                     {
-                        Pets?.map(item => <div title="View Details" key={item._id} className="flex flex-col items-center p-6 duration-300 transform border cursor-pointer rounded-full group hover:bg-sky-400 hover:scale-105 transition-transform dark:border-gray-600 dark:hover:border-transparent">
+                        Pets?.map(item => <div title="View Details" key={item._id} className="flex flex-col items-center p-6 duration-300 transform border cursor-pointer rounded-full group hover:bg-[#2E256F] hover:scale-105 transition-transform dark:border-gray-600 dark:hover:border-transparent">
                             <img className="object-cover w-32 h-32" src={item.pet_image} alt="" />
 
                             <h1 className="mt-4 text-3xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">{item.category}</h1>

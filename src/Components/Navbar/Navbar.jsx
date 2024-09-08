@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import ThemeContext from '../../Hooks/ThemeContext';
+import CommonButton from '../Buttons/CommonButton';
 
 const Navbar = () => {
     const { user, signOutUser } = useAuth();
@@ -62,7 +63,7 @@ const Navbar = () => {
                     <div className="flex justify-start items-center gap-2">
                         <img className="w-8 h-8 xl:w-10 xl:h-10" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
                         <p className="text-2xl xl:text-4xl font-bold xl:font-bold text-[#0CC0DF]">Pet Haven BD</p>
-                    </div>                
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-md xl:text-lg font-medium dark:text-gray-100 text-gray-800">
@@ -76,15 +77,15 @@ const Navbar = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
-                                <span className="badge badge-sm indicator-item bg-sky-500 text-black dark:text-white w-5 h-5 text-md"></span>
+                                <span className="badge badge-sm indicator-item bg-[#2E256F] text-black dark:text-white w-5 h-5 text-md"></span>
                             </div>
                         </div>
                         <div tabIndex={0} className="mt-3 z-50 card card-compact dropdown-content w-52 bg-base-100 rounded-lg shadow">
                             <div className="card-body bg-gray-200 dark:bg-gray-600 border-gray-300 shadow-xl border-2 rounded-xl">
-                                <span className="font-bold text-sky-500 text-2xl">Foods</span>
+                                <span className="font-bold text-[#2E256F] text-2xl">Foods</span>
                                 <span className="dark:text-gray-200 text-gray-900 text-lg font-medium">Subtotal: $100</span>
                                 <div className="card-actions">
-                                    <Link to="viewCart" className="bg-sky-500 hover:bg-sky-600 hover:shadow-md px-6 py-2 flex items-center justify-center rounded-full w-full text-xl font-bold text-gray-200 ">
+                                    <Link to="viewCart" className="bg-[#2E256F] hover:bg-sky-600 hover:shadow-md px-6 py-2 flex items-center justify-center rounded-full w-full text-xl font-bold text-gray-200 ">
                                         View cart
                                     </Link>
                                 </div>
@@ -147,10 +148,7 @@ const Navbar = () => {
                             </>
                             : <>
                                 <Link to="/login">
-                                    <button className="cursor-pointer inline-flex items-center rounded-full px-7 py-2 text-xl font-mono font-semibold text-sky-600 hover:text-white border-2 border-sky-600
-                                    transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-sky-600 duration-300  focus:bg-transparent">
-                                        Login
-                                    </button>
+                                    <CommonButton title={"Login"} width={"40"} hight={"12"}></CommonButton>
                                 </Link>
                             </>
                         }

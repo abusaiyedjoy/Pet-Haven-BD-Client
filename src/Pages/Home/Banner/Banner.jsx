@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './Banner.css'
 import { Typewriter } from 'react-simple-typewriter';
+import CommonButton from '../../../Components/Buttons/CommonButton';
 
 
 const Banner = () => {
@@ -13,10 +14,10 @@ const Banner = () => {
     return (
         <section>
 
-            <div className="relative h-[750px] w-full bg-cover bg-center" style={{ backgroundImage: "url('https://i.ibb.co/3sCHDxn/Black-Modern-Adopt-A-Pet-Banner-Landscape.png')" }}>
+            <div className="relative h-[750px] w-full bg-cover bg-center background-image">
                 <div className="absolute top-[20%] left-6 text-center text-gray-200 z-30">
                     <h1 className="text-2xl font-bold my-4">Welcome to Pet Haven BD!</h1>
-                    <div className="text-6xl text-sky-500 m-0 font-bold tracking-widest leading-tight">
+                    <div className="text-6xl text-[#2E256F] m-0 font-bold tracking-widest leading-tight">
                         <Typewriter
                             words={['ADOPT A PET!', 'DON\'T BUY']}
                             loop={10}
@@ -25,7 +26,7 @@ const Banner = () => {
                             typeSpeed={70}
                             deleteSpeed={60}
                             delaySpeed={1000}
-                            className="text-6xl text-sky-500 m-0 font-bold tracking-widest leading-tight"
+                            className="text-6xl text-[#2E256F] m-0 font-bold tracking-widest leading-tight"
                             textStyle={{
                                 color: 'red',
                                 fontSize: '5xl',
@@ -41,9 +42,7 @@ const Banner = () => {
                     </p>
                     <div className="flex justify-center items-center gap-10">
 
-                        <button className="cursor-pointer inline-flex items-center rounded-xl px-7 py-3 text-2xl font-mono font-semibold text-sky-600 hover:text-white border-2 border-sky-600 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-95 hover:bg-sky-600 duration-300 focus:bg-transparent">
-                            Adoption Post
-                        </button>
+                        <CommonButton title={"Adoption post"} width={"60"} hight={"16"}></CommonButton>
                     </div>
                 </div>
             </div>

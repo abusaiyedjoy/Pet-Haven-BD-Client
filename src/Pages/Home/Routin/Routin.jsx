@@ -7,9 +7,9 @@ const Routin = () => {
                     <h1 className="text-2xl lg:text-4xl font-semibold text-center text-gray-800 capitalize dark:text-white">Start With a Healthy Routine</h1>
 
                     <div className="flex justify-center mx-auto mt-6">
-                        <span className="inline-block w-40 h-1 bg-sky-500 rounded-full"></span>
-                        <span className="inline-block w-3 h-1 mx-1 bg-sky-500 rounded-full"></span>
-                        <span className="inline-block w-1 h-1 bg-sky-500 rounded-full"></span>
+                        <span className="inline-block w-40 h-1 bg-[#2E256F] rounded-full"></span>
+                        <span className="inline-block w-3 h-1 mx-1 bg-[#2E256F] rounded-full"></span>
+                        <span className="inline-block w-1 h-1 bg-[#2E256F] rounded-full"></span>
                     </div>
 
                     <p className="max-w-2xl text-lg  mx-auto my-6 text-center text-gray-500 dark:text-gray-300">

@@ -59,14 +59,14 @@ const AllPets = () => {
                         <button
                             onClick={handlePreviousPage}
                             disabled={page === 1}
-                            className="px-4 py-2 mx-2 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded"
+                            className="px-4 py-2 mx-2 bg-[#2E256F] hover:bg-sky-600 text-white font-bold rounded"
                         >
                             Previous
                         </button>
                         <button
                             onClick={handleNextPage}
                             disabled={page === totalPages}
-                            className="px-4 py-2 mx-2 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded"
+                            className="px-4 py-2 mx-2 bg-[#2E256F] hover:bg-sky-600 text-white font-bold rounded"
                         >
                             Next
                         </button>
