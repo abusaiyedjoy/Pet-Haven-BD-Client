@@ -27,7 +27,7 @@ const PetListing = () => {
             />
             <div className="mt-8">
                 <form className="max-w-lg mx-auto">
-                    <div className="flex items-center border-4 border-[#2E256F] rounded-xl">
+                    <div className="flex items-center border-4 border-primary rounded-xl">
                         <div className="relative">
                             <button
                                 id="dropdown-button"
@@ -93,10 +93,10 @@ const PetListing = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="w-full bg-gray-300 h-full dark:bg-gray-700 text-white border rounded-r-md lg:max-w-sm dark:border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-400 focus-within:ring-opacity-40">
+                        <div className="w-full bg-gray-300 h-full dark:bg-gray-700 text-white border rounded-r-md lg:max-w-sm dark:border-gray-700 focus-within:border-secondary focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-secondary focus-within:ring-opacity-40">
                             <div className="flex">
                                 <input type="text" placeholder="Search your pets here" className="flex-1 h-full px-4 py-3 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
-                                <button type="button" className="h-full px-4 py-4 text-white transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400">
+                                <button type="button" className="h-full px-4 py-4 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-secondary focus:outline-none focus:bg-secondary">
                                     <FaSearch />
                                 </button>
                             </div>

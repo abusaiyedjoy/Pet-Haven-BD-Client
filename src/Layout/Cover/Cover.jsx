@@ -18,10 +18,10 @@ const Cover = ({header,heading, image, title }) => {
                         <h1 className="mb-5 text-5xl font-bold text-main">{header ? header : "Pet Haven BD" }</h1>
                         <h1 className="mb-5 text-2xl font-medium text-main">{heading }</h1>
                         <button className="text-lg font-bold">
-                            <Link to="/" className="text-main hover:text-[#b19455]">
-                                Home 
+                            <Link to="/" className="text-main hover:text-primary">
+                                Home |   
                             </Link>
-                             || {title}
+                               { title}
                         </button>
                     </div>
                 </div>

@@ -12,6 +12,7 @@ const Navbar = () => {
     const { user, signOutUser } = useAuth();
     const { theme, handleThemeChange } = useContext(ThemeContext);
 
+
     // User Profile
     const [isOpen, setIsOpen] = useState(false);
     const toggleDropdown = () => {
@@ -39,12 +40,44 @@ const Navbar = () => {
 
     const navlinks = (
         <>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/petListing">Pet Listing</NavLink></li>
-            <li><NavLink to="/services">Services</NavLink></li>
-            <li><NavLink to="/about">About Us</NavLink></li>
-            <li><NavLink to="/campains">Donation Campains</NavLink></li>
-            <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+            <li>
+                <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                        isActive
+                            ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
+                            : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-cover hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                    }
+                >
+                    Home
+                </NavLink>
+            </li>
+
+            <li><NavLink to="/petListing" className={({ isActive }) =>
+                isActive
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] !bg-transparent bg-cover bg-no-repeat bg-center bg-[length:45px_45px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary hover:bg-cover hover:bg-center hover:bg-no-repeat hover:transition-transform !bg-transparent hover:duration-200 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px]"
+            }>Pet Listing</NavLink></li>
+            <li><NavLink to="/services" className={({ isActive }) =>
+                isActive
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] !bg-transparent bg-cover bg-no-repeat bg-center bg-[length:45px_45px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary hover:bg-cover hover:bg-center hover:bg-no-repeat hover:transition-transform  !bg-transparent hover:duration-200 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px]"
+            }>Services</NavLink></li>
+            <li><NavLink to="/about" className={({ isActive }) =>
+                isActive
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] !bg-transparent bg-cover bg-no-repeat bg-center bg-[length:45px_45px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary hover:bg-cover hover:bg-center hover:bg-no-repeat hover:transition-transform  !bg-transparent hover:duration-200 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px]"
+            }>About Us</NavLink></li>
+            <li><NavLink to="/campains" className={({ isActive }) =>
+                isActive
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] !bg-transparent bg-cover bg-no-repeat bg-center bg-[length:45px_45px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary hover:bg-cover hover:bg-center hover:bg-no-repeat hover:transition-transform  !bg-transparent hover:duration-200 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px]"
+            }>Donation Campains</NavLink></li>
+            <li><NavLink to="/dashboard" className={({ isActive }) =>
+                isActive
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] !bg-transparent bg-cover bg-no-repeat bg-center bg-[length:45px_45px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary hover:bg-cover hover:bg-center hover:bg-no-repeat hover:transition-transform  !bg-transparent hover:duration-200 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px]"
+            }>Dashboard</NavLink></li>
         </>
     );
 
@@ -54,19 +87,19 @@ const Navbar = () => {
                 <div className="navbar-start w-auto flex justify-center items-center gap-2">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-gray-800 dark:text-gray-200 p-0 flex justify-center items-center">
-                            <HiMenuAlt1 size={30} />
+                            <HiMenuAlt1 className='text-primary' size={30} />
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box dark:text-gray-100 dark:bg-gray-800 text-gray-800 bg-gray-300">
+                        <ul tabIndex={0} className="font-medium flex flex-col p-4 mt-4 border border-gray-200 rounded-lg bg-gray-100 rtl:space-x-reverse dark:bg-gray-800 dark:border-gray-700 menu menu-lg dropdown-content z-50 shadow dark:text-gray-100 text-gray-800">
                             {navlinks}
                         </ul>
                     </div>
                     <div className="flex justify-start items-center gap-2">
-                        <img className="w-8 h-8 xl:w-10 xl:h-10" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
-                        <p className="text-2xl xl:text-4xl font-bold xl:font-bold text-[#0CC0DF]">Pet Haven BD</p>
+                        <img className="w-8 h-8 xl:w-10 xl:h-10" src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" />
+                        <p className="text-2xl xl:text-4xl font-bold xl:font-bold text-primary">Pet Haven BD</p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1 text-md xl:text-lg font-medium dark:text-gray-100 text-gray-800">
+                    <ul className="menu menu-horizontal px-1 text-md xl:text-lg font-medium dark:text-gray-100 bg-transparent text-gray-800">
                         {navlinks}
                     </ul>
                 </div>
@@ -77,7 +110,7 @@ const Navbar = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-gray-800 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
-                                <span className="badge badge-sm indicator-item bg-[#2E256F] text-black dark:text-white w-5 h-5 text-md"></span>
+                                <span className="badge badge-sm indicator-item bg-primary text-white dark:text-white w-5 h-5 text-md">8</span>
                             </div>
                         </div>
                         <div tabIndex={0} className="mt-3 z-50 card card-compact dropdown-content w-52 bg-base-100 rounded-lg shadow">
