@@ -40,7 +40,7 @@ const AllPets = () => {
                                 <div className="px-6 py-4">
                                     <h1 className="text-2xl font-semibold text-gray-800 dark:text-white">{pet.pet_name}</h1>
                                     <div className="flex items-center mt-4 text-gray-700 dark:text-gray-200">
-                                        <IoLocation size={20} color={'blue'} />
+                                        <IoLocation size={20} color={'red'} />
                                         <h1 className="px-2 text-lg font-normal">{pet.pet_location}</h1>
                                     </div>
                                     <div className="divider my-2"></div>

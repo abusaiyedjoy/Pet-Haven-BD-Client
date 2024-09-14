@@ -70,7 +70,7 @@
 //         Cell: ({ row }) => (
 //           <div className="flex space-x-2">
 //             <button
-//               className="text-blue-500"
+//               className="text-red-500"
 //               onClick={() => handleUpdate(row.original._id)}
 //             >
 //               <FaEdit />

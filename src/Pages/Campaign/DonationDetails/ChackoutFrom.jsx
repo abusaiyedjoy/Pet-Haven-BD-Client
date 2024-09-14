@@ -51,7 +51,7 @@ const CheckoutForm = ({ campaignId, closeModal }) => {
         Card details
         <CardElement className="border p-2 rounded mb-4 w-full" />
       </label>
-      <button type="submit" disabled={!stripe} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      <button type="submit" disabled={!stripe} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
         Donate
       </button>
     </form>

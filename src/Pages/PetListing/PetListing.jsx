@@ -93,7 +93,7 @@ const PetListing = () => {
                                 </div>
                             )}
                         </div>
-                        <div className="w-full bg-gray-300 h-full dark:bg-gray-700 text-white border rounded-r-md lg:max-w-sm dark:border-gray-700 focus-within:border-secondary focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-secondary focus-within:ring-opacity-40">
+                        <div className="w-full bg-gray-300 h-full dark:bg-gray-700 text-white border rounded-r-md lg:max-w-sm dark:border-gray-700 focus-within:border-secondary focus-within:ring focus-within:ring-red-300 dark:focus-within:border-secondary focus-within:ring-opacity-40">
                             <div className="flex">
                                 <input type="text" placeholder="Search your pets here" className="flex-1 h-full px-4 py-3 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0" />
                                 <button type="button" className="h-full px-4 py-4 text-white transition-colors duration-300 transform bg-primary rounded-md hover:bg-secondary focus:outline-none focus:bg-secondary">

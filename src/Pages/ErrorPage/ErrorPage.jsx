@@ -22,13 +22,13 @@ const ErrorPage = () => {
             <div className="flex space-x-4">
                 <button
                     onClick={handleGoBack}
-                    className="px-6 py-2 text-lg font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    className="px-6 py-2 text-lg font-semibold text-white bg-secondary rounded-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50"
                 >
                     Go Back
                 </button>
                 <button
                     onClick={handleGoHome}
-                    className="px-6 py-2 text-lg font-semibold text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                    className="px-6 py-2 text-lg font-semibold text-white bg-secondary rounded-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-third focus:ring-opacity-50"
                 >
                     Go Home
                 </button>
