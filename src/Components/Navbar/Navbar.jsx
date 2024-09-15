@@ -164,7 +164,7 @@ const Navbar = () => {
                                                     alt=""
                                                 />
                                                 <p className="font-semibold text-center mr-2 mb-2 text-main ">
-                                                    {user.displayName}
+                                                    {user?.displayName ? user.displayName : "Name not found"}
                                                 </p>
                                                 <p className="font-semibold text-center mr-2 mb-2  text-main ">
                                                     {user.email}

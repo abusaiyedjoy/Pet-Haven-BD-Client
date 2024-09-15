@@ -11,7 +11,6 @@ import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 // TODO: Make sure to implement jwt on login and store the access_token of the user in either localStorage or cookies.
 
 
-
 const SignIn = ({ switchToSignUp }) => {
     const { signInUser } = useAuth()
     const { register, handleSubmit, formState: { errors } } = useForm();

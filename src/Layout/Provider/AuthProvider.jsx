@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const signOutUser = () => {
+    const signOutUser = async () => {
         setLoading(true)
         return signOut(auth)
     }
@@ -33,29 +33,32 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
-
-    const updateUserProfile = (name, photo) => {
-        return updateProfile(auth.currentUser, {
+    const updateUserProfile = async(name, photo) => {
+        return await updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photo
         })
     }
 
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+    useEffect( () => {
+        const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
+            setLoading(true)
             if (currentUser) {
-                // get token and store client
-                const userInfo = { email: currentUser.email };
-                axiosPublic.post('/jwt', userInfo)
-                    .then(res => {
-                        if (res.data.token) {
-                            localStorage.setItem('access-token', res.data.token);
-                            setLoading(false);
-                        }
-                    })
-            }
-            else {
+                try {
+                    const userInfo = { email: currentUser.email };
+                    const res = await axiosPublic.post('/jwt', userInfo);
+                    if (res.data?.token) {
+                        localStorage.setItem('access-token', res.data?.token);
+                    } else {
+                        console.warn("No token received from server");
+                    }
+                } catch (error) {
+                    console.error("Error fetching token:", error);
+                } finally {
+                    setLoading(false); 
+                }
+            } else {
                 localStorage.removeItem('access-token');
                 setLoading(false);
             }

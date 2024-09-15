@@ -22,16 +22,14 @@ const SignUp = ({ switchToSignIn }) => {
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
-        console.log(data);
-
         const { name, photo, email, password } = data;
         createUser(email, password)
             .then(() => {
                 updateUserProfile(name, photo)
-                    .then(() => {
-                        reset()
+                    .then(async () => {
                         toast.success('Successfully Sign Up!')
                         navigate('/');
+                        reset()
                     })
             })
             .catch(error => {
