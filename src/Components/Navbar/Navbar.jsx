@@ -95,7 +95,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex justify-start items-center gap-2">
                         <img className="w-8 h-8 xl:w-10 xl:h-10" src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" />
-                        <p className="text-2xl xl:text-4xl font-bold xl:font-bold text-primary">Pet Haven BD</p>
+                        <p className="text-2xl xl:text-4xl roboto font-bold xl:font-bold text-primary">Pet Haven BD</p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

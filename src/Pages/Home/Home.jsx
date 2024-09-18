@@ -2,8 +2,6 @@ import AboutUs from "./AboutUs/AboutUs";
 import AllPets from "./AllPets/AllPets";
 import Banner from "./Banner/Banner";
 import Category from "./Category/Category";
-import Donate from "./Donate/Donate";
-import Review from "./Review/Review";
 import Routin from "./Routin/Routin";
 
 const Home = () => {
@@ -16,9 +14,6 @@ const Home = () => {
         <AllPets></AllPets>
         <AboutUs></AboutUs>
         <Routin></Routin>
-        <Review></Review>
-        <Donate></Donate>
-
       </div>
     </section>
   );

@@ -1,5 +1,3 @@
-// footer components
-
 
 const Footer = () => {
     return (
@@ -9,8 +7,8 @@ const Footer = () => {
                     <div className="w-full -mx-6 lg:w-2/5">
                         <div className="px-6 dark:text-gray-100 text-gray-800">
                             <div className="flex justify-start items-center mb-5 gap-2">
-                                <img className="w-12 h-12" src="https://i.ibb.co/q7cPwNF/Black-Cat-Flat-Illustrative-Pets-Logo.png" alt="" />
-                                <p className="text-4xl font-bold text-[#0CC0DF]">Pet Haven BD</p>
+                                <img className="w-12 h-12" src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" />
+                                <p className="text-4xl font-bold text-primary">Pet Haven BD</p>
                             </div>
 
                             <p className="max-w-sm ">
@@ -21,7 +19,7 @@ const Footer = () => {
                             <div className="flex mt-6 -mx-2">
                                 <a
                                     href="#"
-                                    className="mx-2 transition-colors duration-300  hover:text-sky-600 "
+                                    className="mx-2 transition-colors duration-300  hover:text-red-600 "
                                     aria-label="Reddit"
                                 >
                                     <svg
@@ -36,7 +34,7 @@ const Footer = () => {
 
                                 <a
                                     href="#"
-                                    className="mx-2 transition-colors duration-300  hover:text-sky-600 "
+                                    className="mx-2 transition-colors duration-300  hover:text-red-600 "
                                     aria-label="Facebook"
                                 >
                                     <svg
@@ -51,7 +49,7 @@ const Footer = () => {
 
                                 <a
                                     href="#"
-                                    className="mx-2 transition-colors duration-300  hover:text-sky-600 "
+                                    className="mx-2 transition-colors duration-300  hover:text-red-600 "
                                     aria-label="Github"
                                 >
                                     <svg
@@ -75,19 +73,19 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Company
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     community
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Careers
                                 </a>
@@ -99,19 +97,19 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Tec
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Music
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Videos
                                 </a>
@@ -123,19 +121,19 @@ const Footer = () => {
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Mega cloud
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Aperion UI
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline"
+                                    className="block mt-2 text-sm hover:text-third  hover:underline"
                                 >
                                     Meraki UI
                                 </a>
@@ -145,10 +143,10 @@ const Footer = () => {
                                 <h3 className=" font-semibold uppercase ">
                                     Contact
                                 </h3>
-                                <span className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline">
+                                <span className="block mt-2 text-sm hover:text-third  hover:underline">
                                     +1 526 654 8965
                                 </span>
-                                <span className="block mt-2 text-sm hover:text-[#2E256F]  hover:underline">
+                                <span className="block mt-2 text-sm hover:text-third  hover:underline">
                                     example@email.com
                                 </span>
                             </div>
@@ -156,10 +154,10 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <hr className="h-px my-6 bg-sky-300 border-none" />
+                <hr className="h-px my-6 bg-red-300 border-none" />
 
                 <div>
-                    <p className="text-center text-gray-700 hover:text-[#2E256F] ">
+                    <p className="text-center text-gray-700 hover:text-third ">
                         © Brand 2020 - All rights reserved
                     </p>
                 </div>

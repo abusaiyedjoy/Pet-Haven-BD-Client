@@ -1,15 +1,15 @@
 
 const Routin = () => {
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-gray-100 dark:bg-gray-900">
             <div className="h-[32rem] bg-gray-100 dark:bg-gray-800">
                 <div className="container px-6 py-10 mx-auto">
                     <h1 className="text-2xl lg:text-4xl font-semibold text-center text-gray-800 capitalize dark:text-white">Start With a Healthy Routine</h1>
 
                     <div className="flex justify-center mx-auto mt-6">
-                        <span className="inline-block w-40 h-1 bg-[#2E256F] rounded-full"></span>
-                        <span className="inline-block w-3 h-1 mx-1 bg-[#2E256F] rounded-full"></span>
-                        <span className="inline-block w-1 h-1 bg-[#2E256F] rounded-full"></span>
+                        <span className="inline-block w-40 h-1 bg-secondary rounded-full"></span>
+                        <span className="inline-block w-3 h-1 mx-1 bg-secondary rounded-full"></span>
+                        <span className="inline-block w-1 h-1 bg-secondary rounded-full"></span>
                     </div>
 
                     <p className="max-w-2xl text-lg  mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
