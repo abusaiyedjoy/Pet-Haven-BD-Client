@@ -7,7 +7,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
 // import required modules
-import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import SlideCard from './SlideCard';
 import Header from '../../Header/Header';
 
@@ -97,7 +97,7 @@ const SlideServices = () => {
             <Swiper
                 slidesPerView={4}
                 spaceBetween={20}
-                freeMode={true}
+                loop={true}
                 autoplay={{
                     delay: 3000,
                     disableOnInteraction: false,
@@ -105,7 +105,7 @@ const SlideServices = () => {
                 pagination={{
                     clickable: true,
                 }}
-                modules={[FreeMode, Autoplay, Pagination]}
+                modules={[Autoplay, Pagination]}
                 className="mySwiper"
             >
                 {servicesData.map((service) => (

@@ -27,7 +27,7 @@ const SlideCard = ({service}) => {
             <div className="para uppercase text-center leading-none z-40">
                 <p className="font-bold text-xl tracking-wider text-gray-500 dark:text-gray-200 roboto">{service.title}</p>
             </div>
-            <div className="w-[160px] h-[160px] aspect-square hover:scale-110 transition-transform duration-200 ease-in-out bg-transparent z-40 rounded-full">
+            <div className="w-[160px] h-[160px] aspect-square hover:scale-110 transition-transform duration-300 ease-in-out hover:shadow-2xl shadow-slate-800 bg-transparent z-40 rounded-full">
               <img className="w-full h-full overflow-hidden rounded-full" src={service.img} alt="" />
             </div>
             <div className="btm-_container z-40 flex flex-row justify-between items-end gap-10">
