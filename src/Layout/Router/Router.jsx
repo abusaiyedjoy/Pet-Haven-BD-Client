@@ -14,7 +14,7 @@ import CreateCampaign from "../../Pages/Dashboard/CreateCampaign";
 import Adoption from './../../Pages/Dashboard/Adoption';
 import MyDonation from "../../Pages/Dashboard/MyDonation";
 import PetListing from './../../Pages/PetListing/PetListing';
-import Services from './../../Pages/Service/Services';
+import Services from './../../Pages/ServicePage/Services';
 import About from './../../Pages/About/About';
 import Campaign from './../../Pages/Campaign/Campaign';
 import PetDetails from "../Pet Details/PetDetails";

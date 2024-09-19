@@ -5,7 +5,6 @@ const AboutUs = () => {
     return (
         <section className="bg-white dark:bg-gray-800">
             <Header Heading={"About Pet Haven BD"}></Header>
-
             <div className="container flex flex-col px-6 pb-10 mx-auto space-y-6 lg:h-[32rem] lg:py-16 lg:flex-row lg:items-center">
                 <div className="w-full lg:w-1/2">
                     <div className="lg:max-w-lg">

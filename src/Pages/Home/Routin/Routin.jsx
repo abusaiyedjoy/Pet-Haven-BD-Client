@@ -1,9 +1,11 @@
+import { MdPets } from "react-icons/md";
 
 const Routin = () => {
     return (
         <section className="bg-gray-100 dark:bg-gray-900">
             <div className="h-[32rem] bg-gray-100 dark:bg-gray-800">
                 <div className="container px-6 py-10 mx-auto">
+                    <MdPets className="mx-auto text-3xl text-gray-600 dark:text-gray-300" />
                     <h1 className="text-2xl lg:text-4xl font-semibold text-center text-gray-800 capitalize dark:text-white">Start With a Healthy Routine</h1>
 
                     <div className="flex justify-center mx-auto mt-6">
