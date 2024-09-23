@@ -34,7 +34,7 @@ const servicesData = [
         "id": 4,
         "img": "https://i.ibb.co/GFvC568/nita-anggraeni-goenawan-2-Jiha-EVs8-Dc-unsplash.jpg",
         "title": "Veterinary Care",
-        "description": "Our veterinary care services ensure your pet stays healthy with regular checkups and treatment."
+        "description": "Our veterinary care ensure your pet stays healthy with regular checkups and treatment."
     },
     {
         "id": 5,
@@ -67,12 +67,6 @@ const servicesData = [
         "description": "Our experts will help you choose the best nutrition plan for your pet to keep them healthy."
     },
     {
-        "id": 10,
-        "img": "https://i.ibb.co/ZzbzdwY/zane-lee-Vv-TVkc-p-eg-unsplash.jpg",
-        "title": "Behavioral Therapy",
-        "description": "We offer behavioral therapy for pets who need help with anxiety, aggression, or other issues."
-    },
-    {
         "id": 11,
         "img": "https://i.ibb.co/VJ2MjHk/sandy-millar-k-KAa-Ce-Gf5w-Y-unsplash.jpg",
         "title": "Pet Exercise",
@@ -95,7 +89,7 @@ const SlideServices = () => {
                 Heading={"Our Services"}
             ></Header>
             <Swiper
-                slidesPerView={4}
+                slidesPerView={1}
                 spaceBetween={20}
                 loop={true}
                 autoplay={{
@@ -105,8 +99,19 @@ const SlideServices = () => {
                 pagination={{
                     clickable: true,
                 }}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                }}
                 modules={[Autoplay, Pagination]}
-                className="mySwiper"
+                className="mySwiper flex justify-center items-center"
             >
                 {servicesData.map((service) => (
                     <SwiperSlide key={service.id}>

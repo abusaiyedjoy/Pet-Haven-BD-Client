@@ -1,11 +1,10 @@
-import AboutUs from "./AboutUs/AboutUs";
-import NumberCounter from "./AboutUs/Number";
+import Statistics from "./AboutUs/Number";
 import AllPets from "./AllPets/AllPets";
 import Banner from "./Banner/Banner";
 import Blog from "./Blog/Blog";
 import Category from "./Category/Category";
 import Gallery from "./Gallery/Gallery";
-import Routin from "./Routin/Routin";
+import Team from "./ourTeam/Team";
 import SlideService from "./Service/SlideServices";
 
 const Home = () => {
@@ -19,9 +18,8 @@ const Home = () => {
         <AllPets></AllPets>
         <Gallery/>
         <Blog/>
-        <AboutUs></AboutUs>
-        <NumberCounter start={0} end={1000} duration={2000} />
-        <Routin></Routin>
+        <Team></Team>
+        <Statistics start={0} end={1000} duration={2000} />
       </div>
     </section>
   );

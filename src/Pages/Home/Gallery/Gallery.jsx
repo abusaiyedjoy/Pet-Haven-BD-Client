@@ -29,7 +29,7 @@ const Gallery = () => {
                 Heading={"Our Gallery Section"}
             ></Header>
             <Swiper
-                slidesPerView={4}
+                slidesPerView={2}
                 spaceBetween={20}
                 loop={true}
                 autoplay={{
@@ -38,6 +38,14 @@ const Gallery = () => {
                 }}
                 pagination={{
                     clickable: true,
+                }}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
                 }}
                 modules={[Autoplay, Pagination]}
                 className="gallerySwiper"

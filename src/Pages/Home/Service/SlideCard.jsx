@@ -3,7 +3,7 @@
 
 const SlideCard = ({service}) => {
     return (
-        <div className="product-card w-[300px] rounded-md shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 py-8 px-6 bg-white dark:bg-gray-800 flex flex-col items-center justify-center gap-3 transition-all duration-300 group">
+        <div className="product-card w-[300px] mx-auto rounded-md shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 py-8 px-6 bg-white dark:bg-gray-800 flex flex-col items-center justify-center gap-3 transition-all duration-300 group">
             <div className="absolute -left-[40%] top-0 group-hover:rotate-12 transition-all duration-300 group-hover:scale-150">
                 <div className="flex gap-1">
                     <svg
@@ -31,7 +31,7 @@ const SlideCard = ({service}) => {
               <img className="w-full h-full overflow-hidden rounded-full" src={service.img} alt="" />
             </div>
             <div className="btm-_container z-40 flex flex-row justify-between items-end gap-10">
-                <p className="text-gray-200 sofia">{service.description}</p>
+                <p className="text-gray-200 sofia">{service.description.slice(0,95)}</p>
             </div>
 
         </div>

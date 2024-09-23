@@ -8,10 +8,10 @@ const Footer = () => {
                         <div className="px-6 dark:text-gray-100 text-gray-800">
                             <div className="flex justify-start items-center mb-5 gap-2">
                                 <img className="w-12 h-12" src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" />
-                                <p className="text-4xl font-bold text-primary">Pet Haven BD</p>
+                                <p className="text-4xl roboto font-bold text-primary">Pet Haven BD</p>
                             </div>
 
-                            <p className="max-w-sm ">
+                            <p className="max-w-sm sofia">
                                 Join 31,000+ other and never miss out on new tips, tutorials,
                                 and more.
                             </p>
@@ -68,85 +68,85 @@ const Footer = () => {
                     <div className="mt-6 lg:mt-0 lg:flex-1 dark:text-gray-100 text-gray-800">
                         <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                             <div>
-                                <h3 className=" font-semibold uppercase ">
+                                <h3 className=" font-semibold roboto uppercase ">
                                     About
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Company
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     community
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Careers
                                 </a>
                             </div>
 
                             <div>
-                                <h3 className=" font-semibold uppercase ">
+                                <h3 className=" font-semibold roboto uppercase ">
                                     Blog
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Tec
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Music
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Videos
                                 </a>
                             </div>
 
                             <div>
-                                <h3 className=" font-semibold uppercase ">
+                                <h3 className=" font-semibold roboto uppercase ">
                                     Products
                                 </h3>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Mega cloud
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Aperion UI
                                 </a>
                                 <a
                                     href="#"
-                                    className="block mt-2 text-sm hover:text-third  hover:underline"
+                                    className="block mt-2 text-sm sofia hover:text-third  hover:underline"
                                 >
                                     Meraki UI
                                 </a>
                             </div>
 
                             <div>
-                                <h3 className=" font-semibold uppercase ">
+                                <h3 className=" font-semibold roboto uppercase ">
                                     Contact
                                 </h3>
-                                <span className="block mt-2 text-sm hover:text-third  hover:underline">
+                                <span className="block mt-2 text-sm sofia hover:text-third  hover:underline">
                                     +1 526 654 8965
                                 </span>
-                                <span className="block mt-2 text-sm hover:text-third  hover:underline">
+                                <span className="block mt-2 text-sm sofia hover:text-third  hover:underline">
                                     example@email.com
                                 </span>
                             </div>
@@ -157,7 +157,7 @@ const Footer = () => {
                 <hr className="h-px my-6 bg-red-300 border-none" />
 
                 <div>
-                    <p className="text-center text-gray-700 hover:text-third ">
+                    <p className="text-center sofadi text-gray-700 hover:text-third ">
                         © Brand 2020 - All rights reserved
                     </p>
                 </div>
