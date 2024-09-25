@@ -3,7 +3,7 @@
 
 const SlideCard = ({service}) => {
     return (
-        <div className="product-card w-[300px] mx-auto rounded-md shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 py-8 px-6 bg-white dark:bg-gray-800 flex flex-col items-center justify-center gap-3 transition-all duration-300 group">
+        <div className="product-card w-[300px] mx-auto rounded-md shadow-xl overflow-hidden z-[100] relative cursor-pointer snap-start shrink-0 py-6 mb-8 px-6 bg-white dark:bg-gray-800 flex flex-col items-center justify-center gap-3 transition-all duration-300 group">
             <div className="absolute -left-[40%] top-0 group-hover:rotate-12 transition-all duration-300 group-hover:scale-150">
                 <div className="flex gap-1">
                     <svg

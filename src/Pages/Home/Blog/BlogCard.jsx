@@ -8,7 +8,7 @@ const Blog = ({blog}) => {
     return (
         <div className=" w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
             <a
-                className="group flex flex-col h-full bg-gray-200 rounded-xl transition duration-300 card-bg"
+                className="group flex flex-col h-full bg-gray-200 dark:bg-gray-700 rounded-xl transition duration-300 card-bg"
                 href="#"
             >
                 <div className="relative h-[400px]">

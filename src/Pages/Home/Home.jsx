@@ -1,29 +1,35 @@
-import Statistics from "./AboutUs/Number";
-import AllPets from "./AllPets/AllPets";
+import { lazy, Suspense } from "react";
 import Banner from "./Banner/Banner";
-import Blog from "./Blog/Blog";
 import Category from "./Category/Category";
-import Gallery from "./Gallery/Gallery";
-import Team from "./ourTeam/Team";
 import SlideService from "./Service/SlideServices";
+import AllPets from "./AllPets/AllPets";
+import Statistics from "./AboutUs/Number";
+
+// Lazy loading heavy components to improve performance
+const Blog = lazy(() => import("./Blog/Blog"));
+const Gallery = lazy(() => import("./Gallery/Gallery"));
+const Team = lazy(() => import("./ourTeam/Team"));
 
 const Home = () => {
   return (
-    <section className=" text-gray-900 bg-gray-100  dark:text-gray-100 dark:bg-gray-900 duration-100">
+    <section className="text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-900">
+      <>
+        <Banner />
+        <Category />
+        <SlideService />
+        <AllPets />
 
-      <div>
-        <Banner></Banner>
-        <Category></Category>
-        <SlideService/>
-        <AllPets></AllPets>
-        <Gallery/>
-        <Blog/>
-        <Team></Team>
+        {/* Suspense with a fallback for lazy-loaded components */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <Gallery />
+          <Blog />
+          <Team />
+        </Suspense>
+
         <Statistics start={0} end={1000} duration={2000} />
-      </div>
+      </>
     </section>
   );
 };
-
 
 export default Home;
