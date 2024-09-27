@@ -1,22 +1,22 @@
+/* eslint-disable react/no-unescaped-entities */
 
 const Footer = () => {
     return (
         <footer className=" shadow-2xl bg-gray-100 border-t-2 dark:bg-gray-800">
             <div className="container p-6 mx-auto">
-                <div className="lg:flex">
+                <div className="lg:flex justify-center items-center">
                     <div className="w-full -mx-6 lg:w-2/5">
-                        <div className="px-6 dark:text-gray-100 text-gray-800">
-                            <div className="flex justify-start items-center mb-5 gap-2">
+                        <div className="pl-6 dark:text-gray-100 text-gray-800">
+                            <div className="flex justify-center w-full md:justify-start items-center mb-5 gap-2">
                                 <img className="w-12 h-12" src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" />
                                 <p className="text-4xl roboto font-bold text-primary">Pet Haven BD</p>
                             </div>
 
-                            <p className="max-w-sm sofia">
-                                Join 31,000+ other and never miss out on new tips, tutorials,
-                                and more.
+                            <p className="md:max-w-lg lg:max-w-[320px] xl:max-w-sm  text-center md:text-start sofia">
+                                "Helping pets find loving homes. Explore our adoption services, learn about pet care, and support our mission to give every pet a second chance. Contact us to make a difference today!"
                             </p>
 
-                            <div className="flex mt-6 -mx-2">
+                            <div className="flex mt-6 -mx-2 justify-center md:justify-start items-center">
                                 <a
                                     href="#"
                                     className="mx-2 transition-colors duration-300  hover:text-red-600 "

@@ -6,7 +6,9 @@ import LoadingSpinner from "../../../Components/Shared/Loading";
 import Share from "../../../Components/Buttons/Share";
 import { RiSlideshowFill } from "react-icons/ri";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import {
+     Autoplay, 
+     Pagination } from "swiper/modules";
 import PetsCard from "./PetsCard";
 import './AllPets.css'
 import { MdPets } from "react-icons/md";
@@ -189,7 +191,6 @@ const AllPets = () => {
     ];
 
 
-
     const renderSwiper = () => (
         <Swiper
             slidesPerView={1}
@@ -202,14 +203,17 @@ const AllPets = () => {
             pagination={{
                 clickable: true,
             }}
-            // breakpoints={{
-            //     768: { slidesPerView: 2 },
-            // }}
-            modules={[Autoplay, Pagination]}
-            className="w-full mx-auto"
+            breakpoints={{
+                1024: { slidesPerView: 2 },
+                1440: { slidesPerView: 3 },
+            }}
+            modules={[
+                Autoplay,
+                 Pagination]}
+            className="w-full mx-auto flex justify-center items-center"
         >
             {PetData.map((pet) => (
-                <SwiperSlide key={pet.id} className="max-w-lg mx-auto">
+                <SwiperSlide key={pet.id}>
                     <PetsCard pet={pet} />
                 </SwiperSlide>
             ))}

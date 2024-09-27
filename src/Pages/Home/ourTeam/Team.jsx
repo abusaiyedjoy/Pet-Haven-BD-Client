@@ -9,7 +9,8 @@ const Team = () => {
     ];
 
     return (
-        <section className="py-8 px-6">
+        <section
+            className="py-8 px-6">
             {/* Header Component */}
             <div className="mb-5">
                 <Header SubHeading={"-- Qualified Professionals --"} Heading={"Our Team Members"} />

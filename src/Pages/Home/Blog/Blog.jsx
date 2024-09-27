@@ -88,12 +88,15 @@ const Blog = () => {
                     1024: {
                         slidesPerView: 3,
                     },
+                    1440: {
+                        slidesPerView: 4,
+                    },
                 }}
                 modules={[Autoplay, Pagination]}
                 className="w-full mx-auto"
             >
                 {blogData.map((blog) => (
-                    <SwiperSlide key={blog.id} className="max-w-lg mx-auto">
+                    <SwiperSlide key={blog.id}>
                         <BlogCard blog={blog}></BlogCard>
                     </SwiperSlide>
                 ))}

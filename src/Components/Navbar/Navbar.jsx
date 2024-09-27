@@ -45,8 +45,8 @@ const Navbar = () => {
                     to="/"
                     className={({ isActive }) =>
                         isActive
-                            ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
-                            : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                            ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                            : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
                     }
                 >
                     Home
@@ -55,28 +55,28 @@ const Navbar = () => {
 
             <li><NavLink to="/petListing" className={({ isActive }) =>
                 isActive
-                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
-                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>Pet Listing</NavLink></li>
             <li><NavLink to="/services" className={({ isActive }) =>
                 isActive
-                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
-                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>Services</NavLink></li>
             <li><NavLink to="/about" className={({ isActive }) =>
                 isActive
-                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
-                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>About Us</NavLink></li>
             <li><NavLink to="/campains" className={({ isActive }) =>
                 isActive
-                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
-                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>Donation Campains</NavLink></li>
             <li><NavLink to="/dashboard" className={({ isActive }) =>
                 isActive
-                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:45px_45px] !border-none"
-                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:!border-none dark:hover:border-gray-800 hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:45px_45px] !border-none"
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>Dashboard</NavLink></li>
         </>
     );
@@ -115,11 +115,11 @@ const Navbar = () => {
                         </div>
                         <div tabIndex={0} className="mt-3 z-50 card card-compact dropdown-content w-52 bg-base-100 rounded-lg shadow">
                             <div className="card-body bg-gray-200 dark:bg-gray-600 border-gray-300 shadow-xl border-2 rounded-xl">
-                                <span className="font-bold text-[#2E256F] text-2xl">Foods</span>
+                                <span className="font-bold text-secondary text-2xl">Foods</span>
                                 <span className="dark:text-gray-200 text-gray-900 text-lg font-medium">Subtotal: $100</span>
                                 <div className="card-actions">
-                                    <Link to="viewCart" className="bg-[#2E256F] hover:bg-primary hover:shadow-md px-6 py-2 flex items-center justify-center rounded-full w-full text-xl font-bold text-gray-200 ">
-                                        View cart
+                                    <Link to="viewCart">
+                                    <CommonButton title={"View Card"} width={"40"} hight={"12"}></CommonButton>
                                     </Link>
                                 </div>
                             </div>

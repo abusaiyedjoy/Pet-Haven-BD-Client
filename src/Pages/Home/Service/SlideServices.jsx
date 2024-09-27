@@ -109,6 +109,9 @@ const SlideServices = () => {
                     1024: {
                         slidesPerView: 4,
                     },
+                    1440: {
+                        slidesPerView: 5,
+                    },
                 }}
                 modules={[Autoplay, Pagination]}
                 className="mySwiper flex justify-center items-center"
