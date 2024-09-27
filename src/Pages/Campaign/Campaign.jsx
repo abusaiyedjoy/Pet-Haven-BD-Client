@@ -1,5 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
-import ThemeContext from "../../Hooks/ThemeContext";
+import { useState, useEffect } from 'react';
 import Cover from "../../Layout/Cover/Cover";
 import DonationCampaignCard from './DonationCampaignCard';
 import LoadingSpinner from '../../Components/Shared/Loading';
@@ -43,7 +42,6 @@ const donationCampaigns = [
 const sortedCampaigns = donationCampaigns.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const DonationCampaignsPage = () => {
-  const { theme } = useContext(ThemeContext);
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -76,7 +74,7 @@ const DonationCampaignsPage = () => {
   }, []);
 
   return (
-    <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-900 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+    <div className={`min-h-screen`}>
       <Cover
         image={'https://i.ibb.co/G2MpKkJ/aswathy-n-sr-MHHWCTvc-U-unsplash.jpg'}
         title={"Donation Campaign"}

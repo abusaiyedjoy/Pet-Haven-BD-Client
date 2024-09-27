@@ -1,12 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import Cover from "../../Layout/Cover/Cover";
 import AllPets from "../Home/AllPets/AllPets";
 import { FaChevronDown, FaSearch } from "react-icons/fa";
-import ThemeContext from "../../Hooks/ThemeContext";
 
 
 const PetListing = () => {
-    const { theme } = useContext(ThemeContext);
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('All categories');
@@ -20,7 +18,7 @@ const PetListing = () => {
         setDropdownOpen(!dropdownOpen);
     };
     return (
-        <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-100 text-gray-800'}`}>
+        <div className={`min-h-screen`}>
             <Cover
                 image={'https://i.ibb.co/w7BYPnd/reba-spike-heqbasl-UWcg-unsplash.jpg'}
                 title={"Pet Listing"}

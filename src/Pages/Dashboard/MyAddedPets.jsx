@@ -1,4 +1,4 @@
-// import React, { useEffect, useState, useContext } from 'react';
+// import React, { useEffect, useState } from 'react';
 // import {
 //   useTable,
 //   useSortBy,
@@ -8,13 +8,11 @@
 // import { useNavigate } from 'react-router-dom';
 // import { FaEdit, FaTrash, FaCheck } from 'react-icons/fa';
 // import PropTypes from 'prop-types';
-// import ThemeContext from '../../Hooks/ThemeContext';
 // import toast from 'react-hot-toast';
 // import useAuth from './../../Hooks/useAuth';
 // import useAxiosSecure from './../../Hooks/useAxiosSecure';
 
 // const MyAddedPets = ({ pageSize }) => {
-//   const { theme } = useContext(ThemeContext);
 //   const [pets, setPets] = useState([]);
 //   const [pageCount, setPageCount] = useState(0);
 //   const axiosSecure = useAxiosSecure();
@@ -172,7 +170,7 @@
 //   }, [pageIndex, axiosSecure, user, pageSize]);
 
 //   return (
-//     <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+//     <div className={`min-h-screen`}>
 //       <div className="container mx-auto p-4">
 //         <h2 className="text-2xl font-semibold mb-4">My Added Pets</h2>
 //         <table {...getTableProps()} className="min-w-full bg-white dark:bg-gray-700">

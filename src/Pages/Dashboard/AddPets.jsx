@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Select from 'react-select';
 import axios from 'axios';
@@ -7,7 +7,6 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from 'react-quill';
-import ThemeContext from '../../Hooks/ThemeContext';
 import toast from 'react-hot-toast';
 
 const categories = [
@@ -19,7 +18,6 @@ const categories = [
 ];
 
 const AddPets = () => {
-    const { theme } = useContext(ThemeContext);
     const [imageUrl, setImageUrl] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -82,7 +80,7 @@ const AddPets = () => {
     };
 
     return (
-        <div className={`container mx-auto p-4 ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+        <div className={`container mx-auto p-4`}>
             <h2 className="text-2xl font-semibold mb-4">Add a Pet</h2>
             <Formik
                 initialValues={initialValues}

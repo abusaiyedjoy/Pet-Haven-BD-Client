@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import DonationCampaignCard from '../DonationCampaignCard';
-import ThemeContext from '../../../Hooks/ThemeContext';
 import CheckoutForm from './ChackoutFrom';
 import { useLocation } from 'react-router-dom';
 
@@ -35,7 +34,6 @@ const stripePromise = loadStripe('your-public-key-here');
 
 const DonationDetailsPage = () => {
   const { state: campaign } = useLocation()
-  const { theme } = useContext(ThemeContext);
   // const { id } = useParams();
   // const campaign = donationCampaigns.find(c => c.id === parseInt(id));
 
@@ -53,7 +51,7 @@ const DonationDetailsPage = () => {
   };
 
   return (
-    <div className={`min-h-screen ${theme === 'Dark' ? 'bg-gray-800 text-gray-200' : 'bg-gray-200 text-gray-800'}`}>
+    <div className={`min-h-screen`}>
       <div className="container mx-auto pt-10">
         <div className="flex flex-col justify-center items-center h-[70vh] w-full mx-auto">
           <div className="w-full lg:w-[80%] h-96 bg-gray-700 bg-center bg-cover object-cover rounded-xl shadow-md" style={{ backgroundImage: `url(${campaign?.petImage})` }}></div>
