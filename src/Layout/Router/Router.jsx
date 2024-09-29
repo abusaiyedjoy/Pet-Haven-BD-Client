@@ -20,6 +20,7 @@ import Campaign from './../../Pages/Campaign/Campaign';
 import PetDetails from "../Pet Details/PetDetails";
 import DonationDetailsPage from "../../Pages/Campaign/DonationDetails/DonationDetails";
 import AllUsers from "../../Pages/Dashboard/AdminPage/AllUsers";
+import Contact from "../../Pages/Contact/Contact";
 
 
 
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
         {
             path: "about",
             element: <About></About>
+        },
+        {
+            path: "contact",
+            element: <Contact></Contact>
         },
         {
             path: "campains",

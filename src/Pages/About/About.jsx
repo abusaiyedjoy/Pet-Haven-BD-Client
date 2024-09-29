@@ -7,8 +7,8 @@ const About = () => {
         <div className={`min-h-screen`}>
             <Cover
                 image={'https://i.ibb.co/bstNQ2D/bri-tucker-LGG5-P7-KCzi-U-unsplash.jpg'}
-                header={"About Pet Haven BD"}
-                title={" About Pet Haven BD"}
+                header={"About Us"}
+                title={" / About Us"}
                 />
             <AboutFeatures></AboutFeatures>
         </div>

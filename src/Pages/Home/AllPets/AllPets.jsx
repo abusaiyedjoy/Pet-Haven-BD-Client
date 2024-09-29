@@ -223,7 +223,7 @@ const AllPets = () => {
     return (
         <section className="background-img pt-4 pb-16 bg-gray-100 dark:bg-gray-800">
             <div className="text-center w-full space-y-4 mx-auto py-12">
-                <MdPets className="mx-auto text-4xl text-red-600" />
+                <MdPets className="mx-auto text-4xl text-red-700 animate-petsWiggle" />
                 <h1 className="mx-auto roboto text-center text-gray-300 ">-- Adopting is an act of love --</h1>
                 <h2 className="text-3xl font-semibold text-center roboto capitalize lg:text-5xl text-gray-200 dark:text-gray-100">
                     Choose Favourite Pet for Adoption

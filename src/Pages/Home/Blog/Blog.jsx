@@ -59,7 +59,7 @@ const Blog = () => {
         <section className="background py-12">
             {/* Blog Section Title */}
             <div className="text-center w-full space-y-4 mx-auto py-12">
-                <MdPets className="mx-auto text-4xl text-red-600" />
+                <MdPets className="mx-auto text-4xl text-red-700 animate-petsWiggle" />
                 <h1 className="mx-auto roboto text-center text-gray-300 ">-- keep updated --</h1>
                 <h2 className="text-3xl font-semibold text-center roboto capitalize lg:text-5xl text-gray-200 dark:text-gray-100">
                     Our Latest Blog's

@@ -68,16 +68,17 @@ const Navbar = () => {
                     ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
                     : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>About Us</NavLink></li>
+            <li><NavLink to="/contact" className={({ isActive }) =>
+                isActive
+                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
+                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
+            }>Contact Us</NavLink></li>
             <li><NavLink to="/campains" className={({ isActive }) =>
                 isActive
                     ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
                     : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>Donation Campains</NavLink></li>
-            <li><NavLink to="/dashboard" className={({ isActive }) =>
-                isActive
-                    ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
-                    : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
-            }>Dashboard</NavLink></li>
+
         </>
     );
 
@@ -91,6 +92,9 @@ const Navbar = () => {
                         </div>
                         <ul tabIndex={0} className="font-medium flex flex-col p-4 mt-4 border border-gray-200 rounded-lg bg-gray-100 rtl:space-x-reverse dark:bg-gray-800 dark:border-gray-700 menu menu-lg dropdown-content z-50 shadow dark:text-gray-100 text-gray-800">
                             {navlinks}
+                            <Link className='sm:hidden' to="/login">
+                                <CommonButton title={"Login"} width={"40"} hight={"12"}></CommonButton>
+                            </Link>
                         </ul>
                     </div>
                     <div className="flex justify-start items-center gap-2">
@@ -119,7 +123,7 @@ const Navbar = () => {
                                 <span className="dark:text-gray-200 text-gray-900 text-lg font-medium">Subtotal: $100</span>
                                 <div className="card-actions">
                                     <Link to="viewCart">
-                                    <CommonButton title={"View Card"} width={"40"} hight={"12"}></CommonButton>
+                                        <CommonButton title={"View Card"} width={"40"} hight={"12"}></CommonButton>
                                     </Link>
                                 </div>
                             </div>
@@ -158,17 +162,19 @@ const Navbar = () => {
                                             className="absolute right-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-box shadow-xl dark:bg-gray-800"
                                         >
                                             <ul className="p-2 menu dropdown-content ">
+                                                <Link to="/dashboard">
                                                 <img
                                                     className=" w-12 h-12 mx-auto  rounded-full mb-2 mt-2 border-2 border-main"
                                                     src={user?.photoURL ? user.photoURL : "https://i.ibb.co/DLcr2Vk/sam-moghadam-khamseh-yx-ZSAjy-To-P4-unsplash.jpg"}
-                                                    alt=""
-                                                />
+                                                    alt="Img"
+                                                /></Link>
                                                 <p className="font-semibold text-center mr-2 mb-2 text-main ">
                                                     {user?.displayName ? user.displayName : "Name not found"}
                                                 </p>
                                                 <p className="font-semibold text-center mr-2 mb-2  text-main ">
                                                     {user.email}
                                                 </p>
+                                                <Link to="/dashboard" className="text-center text-third text-lg font-bold roboto cursor-pointer hover:text-primary pb-2">Dashboard</Link>
                                                 <li className="cursor-pointer inline-flex items-center rounded-full text-xl font-mono font-semibold text-primary hover:text-white border-2 border-primary
                                     transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-primary duration-300  focus:bg-transparent">
                                                     <button onClick={handleSignOut}>Sign Out</button>
@@ -180,7 +186,7 @@ const Navbar = () => {
 
                             </>
                             : <>
-                                <Link to="/login">
+                                <Link className='hidden sm:block' to="/login">
                                     <CommonButton title={"Login"} width={"40"} hight={"12"}></CommonButton>
                                 </Link>
                             </>
