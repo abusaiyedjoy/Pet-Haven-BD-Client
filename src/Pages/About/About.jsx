@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Cover from "../../Layout/Cover/Cover";
 import Header from "../Header/Header";
 import AboutFeatures from "./AboutFeatures";

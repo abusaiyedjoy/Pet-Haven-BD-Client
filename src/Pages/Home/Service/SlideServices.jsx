@@ -83,7 +83,7 @@ const servicesData = [
 
 const SlideServices = () => {
     return (
-        <section className='mb-12'>
+        <section className='pb-12'>
             <Header
                 SubHeading={"-- What We Offer --"}
                 Heading={"Our Services"}
