@@ -21,6 +21,7 @@ import PetDetails from "../Pet Details/PetDetails";
 import DonationDetailsPage from "../../Pages/Campaign/DonationDetails/DonationDetails";
 import AllUsers from "../../Pages/Dashboard/AdminPage/AllUsers";
 import Contact from "../../Pages/Contact/Contact";
+import MyCart from "../../Pages/My Cart/MyCart";
 
 
 
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
         {
             path: "campains",
             element: <Campaign></Campaign>
+        },
+        {
+          path: 'viewCart',
+          element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
         },
         {
             path: "donation",
@@ -109,6 +114,7 @@ export const router = createBrowserRouter([
           path: 'myCampaign',
           element: <MyCampaign></MyCampaign>
         },
+        
 
         // Admin Route Manage
 

@@ -157,7 +157,7 @@ const Footer = () => {
                 <hr className="h-px my-6 bg-red-300 border-none" />
 
                 <div>
-                    <p className="text-center sofadi text-gray-700 hover:text-third ">
+                    <p className="text-center sofadi text-gray-700 dark:text-gray-300 hover:text-third dark:hover:text-third cursor-pointer hover:scale-110 duration-200 ease-in-out ">
                         © Brand 2020 - All rights reserved
                     </p>
                 </div>

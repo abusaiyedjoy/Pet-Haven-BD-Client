@@ -11,11 +11,11 @@ const Share = ({ icon, title, details }) => {
                 <div
                     className="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-500 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md"
                 >
-                    <div className="bg-third flex items-center gap-1 p-2 rounded-md">
+                    <div className="bg-secondary flex items-center gap-1 p-2 rounded-md">
                         <span>{details}</span>
                     </div>
                     <div
-                        className="shadow-md bg-third absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"
+                        className="shadow-md bg-secondary absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"
                     ></div>
                     <div
                         className="rounded-md bg-white group-hover:opacity-0 group-hover:scale-[115%] group-hover:delay-700 duration-500 w-full h-full absolute top-0 left-0"
@@ -27,7 +27,7 @@ const Share = ({ icon, title, details }) => {
                 </div>
 
                 <div
-                    className="shadow-md flex items-center group-hover:gap-2 bg-gradient-to-br from-third to-secondary p-3 rounded-full cursor-pointer duration-300"
+                    className="shadow-md flex items-center group-hover:gap-2 bg-gradient-to-br from-secondary to-primary p-3 rounded-full cursor-pointer duration-300"
                 >
                     {icon}
                     <span className="text-[0px] group-hover:text-lg duration-300">

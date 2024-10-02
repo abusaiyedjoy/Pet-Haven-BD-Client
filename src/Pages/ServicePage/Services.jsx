@@ -5,7 +5,6 @@ import { FaArrowRight } from "react-icons/fa";
 import { BiSolidBone } from "react-icons/bi"
 import Header from "../Header/Header";
 
-
 const Services = () => {
 
     const servicesData1 = [
