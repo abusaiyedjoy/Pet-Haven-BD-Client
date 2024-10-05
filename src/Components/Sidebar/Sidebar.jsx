@@ -9,7 +9,7 @@ const Sidebar = () => {
     const isAdmin = false;
     const { signOutUser, user } = useAuth();
     const navigate = useNavigate();
-    
+
     const handleSignOut = () => {
         Swal.fire({
             title: "Are you sure?",
@@ -34,18 +34,21 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="h-full p-3 min-h-screen shadow-2xl space-y-2 w-60 bg-white text-black dark:bg-gray-600 dark:text-gray-200">
+        <div className="p-3 min-h-screen sofadi border-r-2 relative border-primary space-y-2 w-60 bg-orange-100 text-black dark:bg-gray-900 dark:text-gray-200">
             <div className="flex items-center p-2 space-x-4">
-                <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="w-12 h-12 rounded-full dark:bg-gray-500" />
+                <img src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full dark:bg-gray-500" />
                 <div>
-                    <h2 className="text-xl font-semibold">{user?.displayName}</h2>
-                    <span className="flex items-center space-x-1">
-                        <a className="text-sm hover:underline dark:text-gray-600">View profile</a>
-                    </span>
+                    <h2 className="text-2xl roboto font-semibold">Pet Haven BD</h2>
                 </div>
             </div>
-            <div className="divide-y dark:divide-gray-300">
-                <ul className="pt-2 pb-4 menu space-y-1 text-lg">
+            <div className="flex flex-col justify-between gap-10 items-center">
+                <ul className="pt-2 pb-4 menu font-medium space-y-1 text-lg">
+                    <li>
+                        <NavLink to="/" className="flex items-center p-2 gap-5 rounded-md">
+                            <FaHome />
+                            Home
+                        </NavLink>
+                    </li>
                     {isAdmin ? (
                         <>
                             <li>
@@ -108,15 +111,15 @@ const Sidebar = () => {
                         </>
                     )}
                 </ul>
-                <ul className="pt-2 pb-4 space-y-5 pl-4 text-lg">
+                <ul className="pt-2 pb-4 space-y-3 border-t-2 border-secondary w-[90%] pl-4 text-lg absolute bottom-2">
                     <li>
-                        <NavLink to="/" className="flex items-center gap-2">
-                            <FaHome />
-                            Home
+                        <NavLink to="/" className="flex items-center font-semibold gap-2">
+                            <FaUser />
+                            {user ? user?.displayName : 'Profile'}
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink onClick={handleSignOut} className="flex items-center gap-2">
+                        <NavLink onClick={handleSignOut} className="flex font-bold items-center gap-2">
                             <PiSignOutBold />
                             <span>Logout</span>
                         </NavLink>
