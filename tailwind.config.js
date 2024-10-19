@@ -14,12 +14,12 @@ export default {
       animation: {
         petsWiggle: "petsWiggle 3s infinite ease-in-out",
       },
-      backgroundImage: {
-        // Testomonial bg
-        darkImage:
-          "url('https://i.ibb.co.com/287ccXh/testimonial-bg-removebg-preview.png')",
-        lightImage: "url('https://i.ibb.co.com/bz83qft/testimonial-bg.jpg')",
-      },
+      // backgroundImage: {
+      //   // Testomonial bg
+      //   darkImage:
+      //     "url('https://i.ibb.co.com/287ccXh/testimonial-bg-removebg-preview.png')",
+      //   lightImage: "url('https://i.ibb.co.com/bz83qft/testimonial-bg.jpg')",
+      // },
       colors: {
         primary: "#950F0D",
         secondary: "#af1417",

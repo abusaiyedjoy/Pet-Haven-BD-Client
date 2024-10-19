@@ -71,10 +71,10 @@ const Services = () => {
             <section>
                 <Header Heading={"Our More Service Offer's"} SubHeading={"We Really Care About Your Pets"} />
 
-                <div className="flex flex-col mx-6 md:flex-row justify-between items-center md:items-end">
+                <div className="flex flex-col border-b-4 rounded-xl border-primary mx-6 md:flex-row justify-between items-center md:items-end">
 
                     {/* Left Column - Services */}
-                    <div className="mt-12 space-y-12 w-full md:w-1/3">
+                    <div className="mt-12 space-y-12 mb-3 w-full md:w-1/3">
                         {servicesData1.map((service, index) => (
                             <div className="flex justify-start items-start max-w-md" key={service.id}>
                                 <div className="text-primary mt-1">
@@ -106,7 +106,7 @@ const Services = () => {
                     </div>
 
                     {/* Right Column - Services */}
-                    <div className="mt-12 space-y-12 w-full md:w-1/3">
+                    <div className="mt-12 space-y-12 mb-3 w-full md:w-1/3">
                         {servicesData2.map((service, index) => (
                             <div className="flex flex-row-reverse justify-start items-start max-w-md" key={service.id}>
                                 <div className="text-primary mt-1">
