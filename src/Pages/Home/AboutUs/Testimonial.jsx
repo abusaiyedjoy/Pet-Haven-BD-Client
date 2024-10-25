@@ -5,7 +5,7 @@ import Header from "../../Header/Header";
 const Testimonial = () => {
   return (
     <section
-      className="border-t-4 border-primary bg-neutral-300 dark:bg-neutral-900 dark:bg-opacity-60 dark:bg-blend-overlay"
+      className="bg-white dark:bg-gray-800"
     >
       <Header
         SubHeading={"-- Read Testimonial's --"}

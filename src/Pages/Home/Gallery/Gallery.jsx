@@ -23,7 +23,7 @@ const galleryImages = [
 
 const Gallery = () => {
     return (
-        <section className='mb-12'>
+        <section className='pb-12 bg-white dark:bg-gray-800'>
             <Header
                 SubHeading={"-- Our Pet's Image --"}
                 Heading={"Our Gallery Section"}

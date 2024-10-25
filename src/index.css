@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Sofadi+One&family=Sofia&display=swap');
+
+@layer components{
+    .hoverEffect{
+        @apply duration-300 ease-in-out;
+    }
+}
+
 .sofia{
     font-family: "Sofia", cursive;
 }

@@ -8,16 +8,7 @@ import { Link } from 'react-router-dom';
 const Authentication = () => {
     const [activeTab, setActiveTab] = useState(0);
     return (
-        <div
-            style={{
-                backgroundImage: 'url("https://i.ibb.co.com/BfY5fJn/Pet-bg.jpg")',
-                backgroundPosition: "center",
-                backgroundSize: 'cover',
-                backgroundColor: "rgba(0,0,0,0.4)",
-                backgroundBlendMode: "overlay",
-
-            }}
-            className="min-h-screen pt-20 bg-gray-100 overflow-hidden rounded-lg shadow-lg dark:bg-gray-800"
+        <div className="min-h-screen pt-20 w-full bg-neutral-200 overflow-hidden rounded-lg shadow-lg dark:bg-black"
         >
 
 
@@ -29,9 +20,9 @@ const Authentication = () => {
                 Pet Haven BD..!
             </p>
             <div className="flex justify-center items-center w-full">
-                <div className="p-3 w-full sm:w-2/3 xl:w-[50%] mb-20 mx-auto">
+                <div className="p-3 lg:w-[700px] mb-20 mx-auto">
                     <Tabs selectedIndex={activeTab} onSelect={index => setActiveTab(index)}>
-                        <TabList>
+                        <TabList >
                             <Tab>Sign In</Tab>
                             <Tab>Sign Up</Tab>
                         </TabList>

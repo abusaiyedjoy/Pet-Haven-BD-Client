@@ -10,7 +10,7 @@ import Testimonial from "./AboutUs/Testimonial"
 
 const Home = () => {
   return (
-    <section className="text-gray-900 max-w-[1500px] mx-auto bg-gray-100 dark:text-gray-100 dark:bg-gray-900">
+    <section className="text-gray-800 dark:text-gray-100">
       <>
         <Banner />
         <Category />

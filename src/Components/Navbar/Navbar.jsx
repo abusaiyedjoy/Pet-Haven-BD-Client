@@ -83,7 +83,7 @@ const Navbar = () => {
     );
 
     return (
-        <div className="h-16 shadow-2xl bg-gray-100 dark:bg-gray-900">
+        <div className="h-16 shadow-2xl bg-gray-100 dark:bg-gray-900 static top-0">
             <div className="flex justify-between items-center h-full px-4">
                 <div className="navbar-start w-auto flex justify-center items-center gap-2">
                     <div className="dropdown">

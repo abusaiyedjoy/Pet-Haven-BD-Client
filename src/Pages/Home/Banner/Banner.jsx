@@ -13,7 +13,7 @@ const Banner = () => {
     return (
         <section>
 
-            <div className="relative h-screen w-full bg-cover bg-center background-image">
+            <div className="relative min-h-[80vh] w-full bg-cover bg-center background-image">
                 <div className="absolute top-[10%] sm:top-[20%] left-[5%] sm:left-[10%] text-gray-200 z-30">
                     <h2 className="text-2xl font-bold my-4 sofia">Give a new life!</h2>
                     <h1 className="text-6xl roboto text-secondary m-0 font-bold">

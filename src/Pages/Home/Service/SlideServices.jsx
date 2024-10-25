@@ -83,7 +83,7 @@ const servicesData = [
 
 const SlideServices = () => {
     return (
-        <section className='pb-12'>
+        <section className='pb-12 bg-white dark:bg-gray-800'>
             <Header
                 SubHeading={"-- What We Offer --"}
                 Heading={"Our Services"}
@@ -100,16 +100,13 @@ const SlideServices = () => {
                     clickable: true,
                 }}
                 breakpoints={{
-                    640: {
+                    768: {
                         slidesPerView: 2,
                     },
-                    768: {
+                    1024: {
                         slidesPerView: 3,
                     },
-                    1024: {
-                        slidesPerView: 4,
-                    },
-                    1440: {
+                    1600: {
                         slidesPerView: 5,
                     },
                 }}
