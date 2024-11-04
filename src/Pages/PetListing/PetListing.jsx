@@ -24,7 +24,9 @@ const PetListing = () => {
 
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (<div className="flex justify-center items-center w-full h-screen">
+            <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-sky-400 border-t-sky-700"></div>
+        </div>)
     }
 
     const toggleDropdown = () => {
@@ -114,7 +116,6 @@ const PetListing = () => {
             </form>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8 mx-3">
                 {data.map((pet) => (
-                    console.log(pet),
                     <div key={pet._id} style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 dark:bg-white/20 dark:text-zinc-200 rounded-2xl w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
                         <div className="flex justify-center items-center space-x-6">
                             <div className="relative w-[250px] h-[200px] overflow-hidden rounded-md">

@@ -14,7 +14,7 @@ const PetsCard = ({ pet }) => {
                 <div className="relative w-[200px] h-[200px] overflow-hidden rounded-md">
                     <img
                         className="w-full h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
-                        src={images[0]}
+                        src={images?.[1] || images?.[0] || "fallback-image-url.jpg"}
                         alt="Pet Image"
                     />
                     <span className="border-r-2 border-dashed border-primary absolute h-full top-0 -right-5"></span>
@@ -28,9 +28,23 @@ const PetsCard = ({ pet }) => {
                 </div>
             </div>
             <div className="py-5  flex justify-around items-center">
-                <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><BiSolidInjection size={32} className="text-red-800" /> Vaccinated: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{vaccinated}<GiConfirmed size={25} className="text-green-600" /></span></h2>
-                <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><IoCutOutline size={32} className="text-red-800" /> Neutered: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{neutered}<FcCancel size={25} /></span></h2>
-                <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{location.district}</span></h2>
+                <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><BiSolidInjection size={32} className="text-red-800" /> Vaccinated: <span className="flex justify-center items-center rounded-full sofia font-normal text-base">
+                    {vaccinated === "true" ? (
+                        <GiConfirmed size={25} className="text-green-600" />
+                    ) : (
+                        <FcCancel size={25} className="text-red-600" />
+                    )}
+                </span>
+                </h2>
+                <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><IoCutOutline size={32} className="text-red-800" /> Neutered: <span className="flex justify-center items-center rounded-full sofia font-normal text-base">
+                    {neutered === "true" ? (
+                        <GiConfirmed size={25} className="text-green-600" />
+                    ) : (
+                        <FcCancel size={25} className="text-red-600" />
+                    )}
+                </span>
+                </h2>
+                <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{location?.district}</span></h2>
             </div>
             <div className="flex justify-center items-end my-4">
                 <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>

@@ -46,7 +46,7 @@ const AllPets = () => {
             color: "Golden",
             weight: "30 kg",
             healthStatus: "Healthy",
-            neutered: "true",
+            neutered: "false",
             adoptionFee: "$150",
             location: {
                 city: "Dhaka",
@@ -131,7 +131,7 @@ const AllPets = () => {
             name: "Snowball",
             gender: "Female",
             age: "6 months",
-            vaccinated: "true",
+            vaccinated: "false",
             breed: "Rabbit",
             description:
                 "Snowball is a fluffy and energetic rabbit who enjoys hopping around. She’s great for families with kids.",
@@ -139,7 +139,7 @@ const AllPets = () => {
             color: "White",
             weight: "1.2 kg",
             healthStatus: "Healthy",
-            neutered: "false",
+            neutered: "true",
             adoptionFee: "$30",
             location: {
                 city: "Rajshahi",

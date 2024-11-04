@@ -4,7 +4,7 @@ import CommonButton from '../../../Components/Buttons/CommonButton';
 import './Blog.css'
 
 const Blog = ({blog}) => {
-    const {title, description, avaterImg, name, date, month}= blog;
+    const {title, description, avatarImg, name, date, month}= blog;
     return (
         <div className=" w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
             <a
@@ -22,7 +22,7 @@ const Blog = ({blog}) => {
                 <div className="my-4 px-4 flex items-end gap-x-3">
                     <img
                         className="size-11 rounded-full"
-                        src={avaterImg}
+                        src={avatarImg}
                         alt="Avatar"
                     />
                     <div>

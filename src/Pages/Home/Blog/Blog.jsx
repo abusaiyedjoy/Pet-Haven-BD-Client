@@ -10,50 +10,26 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const Blog = () => {
-    const blogData = [
-        {
-            "id": 1,
-            "img": "https://i.ibb.co/mz920js/michael-sum-LEpfef-Qf4r-U-unsplash.jpg",
-            "title": "How to Prepare for a New Pet",
-            "description": "Tips to make your home safe and comfy for a new pet, ensuring a smooth transition.",
-            "avatarImg": "https://i.ibb.co/4gRtCV2/taylor-kopel-WX4i1-Jq-o0-Y-unsplash.jpg",
-            "name": "By Lauren Waller",
-            "date": "18",
-            "month": "Sep"
+
+    const axiosPublic = useAxiosPublic();
+
+    const {data: blogData, isLoading} = useQuery({
+        queryKey: ['blogs'],
+        queryFn: async () => {
+            const {data} = await axiosPublic.get('/blogs');
+            return data;
         },
-        {
-            "id": 2,
-            "img": "https://i.ibb.co/ZzbzdwY/zane-lee-Vv-TVkc-p-eg-unsplash.jpg",
-            "title": "The Importance of Vet Visits",
-            "description": "Learn why regular vet visits are key to keeping your pet happy and healthy.",
-            "avatarImg": "https://i.ibb.co/yBkdPf8/pablo-martinez-Adagxt-VKRWE-unsplash.jpg",
-            "name": "By Aaron Larsson",
-            "date": "10",
-            "month": "Sep"
-        },
-        {
-            "id": 3,
-            "img": "https://i.ibb.co/VJ2MjHk/sandy-millar-k-KAa-Ce-Gf5w-Y-unsplash.jpg",
-            "title": "Top Tips for Adopting Senior Pets",
-            "description": "Adopt a senior pet and discover why older pets make the best companions.",
-            "avatarImg": "https://i.ibb.co/mDgvb8D/andrew-pons-lyl-Cw4zc-A7-I-unsplash.jpg",
-            "name": "By Lauren Waller",
-            "date": "25",
-            "month": "Aug"
-        },
-        {
-            "id": 4,
-            "img": "https://i.ibb.co/GFvC568/nita-anggraeni-goenawan-2-Jiha-EVs8-Dc-unsplash.jpg",
-            "title": "Best Grooming Tips for Your Pet",
-            "description": "Ensure your pet’s coat is shiny and healthy with these simple grooming tips.",
-            "avatarImg": "https://i.ibb.co/gdGggK2/dominik-lange-BFsm5vldl2-I-unsplash.jpg",
-            "name": "By Aaron Larsson",
-            "date": "02",
-            "month": "Sep"
-        }
-    ];
+    })
+
+    if (isLoading) {
+        return (<div className="flex justify-center items-center w-full h-screen">
+            <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-sky-400 border-t-sky-700"></div>
+        </div>)
+    }
 
     return (
         <section className="background py-12">
