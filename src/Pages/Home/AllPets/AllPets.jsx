@@ -238,7 +238,7 @@ const AllPets = () => {
 
                     {/* Button to View All Blogs */}
                     <div className="my-12 flex justify-center items-center">
-                        <Link to="/allBlogs">
+                        <Link to="/petListing">
                             <Share title={"All Adoption Post's"} icon={<RiSlideshowFill size={32} />} />
                         </Link>
                     </div>
@@ -267,5 +267,4 @@ const AllPets = () => {
         </section>
     );
 };
-
 export default AllPets;

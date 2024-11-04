@@ -8,7 +8,7 @@ import { IoIosMailUnread } from "react-icons/io"
 
 const Contact = () => {
     return (
-        <section className="bg-[#d3d3d3] dark:bg-gray-900">
+        <section className="bg-[#e4e4e4] dark:bg-gray-900">
             <Cover
                 image={'https://i.ibb.co/bstNQ2D/bri-tucker-LGG5-P7-KCzi-U-unsplash.jpg'}
                 header={"Contact Us"}

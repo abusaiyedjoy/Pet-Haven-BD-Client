@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { FaMoon, FaSun, FaEllipsisV } from 'react-icons/fa';
+import { FaMoon, FaSun, FaEllipsisV, FaSignOutAlt, FaUser } from 'react-icons/fa';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { HiMiniComputerDesktop } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
@@ -163,21 +163,37 @@ const Navbar = () => {
                                         >
                                             <ul className="p-2 menu dropdown-content ">
                                                 <Link to="/dashboard">
-                                                <img
-                                                    className=" w-12 h-12 mx-auto  rounded-full mb-2 mt-2 border-2 border-main"
-                                                    src={user?.photoURL ? user.photoURL : "https://i.ibb.co/DLcr2Vk/sam-moghadam-khamseh-yx-ZSAjy-To-P4-unsplash.jpg"}
-                                                    alt="Img"
-                                                /></Link>
-                                                <p className="font-semibold text-center mr-2 mb-2 text-main ">
+                                                    <img
+                                                        className=" w-12 h-12 mx-auto  rounded-full mb-2 mt-2 border-2 border-main"
+                                                        src={user?.photoURL ? user.photoURL : "https://i.ibb.co/DLcr2Vk/sam-moghadam-khamseh-yx-ZSAjy-To-P4-unsplash.jpg"}
+                                                        alt="Img"
+                                                    /></Link>
+                                                <p className="font-semibold sofadi text-gray-700 text-center mr-2 mb-2 text-main ">
                                                     {user?.displayName ? user.displayName : "Name not found"}
                                                 </p>
-                                                <p className="font-semibold text-center mr-2 mb-2  text-main ">
+                                                <p className="font-medium text-gray-700 sofia text-center mr-2 mb-2  text-main ">
                                                     {user.email}
                                                 </p>
-                                                <Link to="/dashboard" className="text-center text-third text-lg font-bold roboto cursor-pointer hover:text-primary pb-2">Dashboard</Link>
-                                                <li className="cursor-pointer inline-flex items-center rounded-full text-xl font-mono font-semibold text-primary hover:text-white border-2 border-primary
-                                    transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-primary duration-300  focus:bg-transparent">
-                                                    <button onClick={handleSignOut}>Sign Out</button>
+                                                <hr className="my-2 border-gray-400 " />
+                                                <li>
+                                                    <NavLink to="/dashboard" className="flex items-center p-2 space-x-3 rounded-md">
+                                                        <FaUser className="text-gray-700 dark:text-gray-300 sofadi text-md " />
+                                                        <span className="text-gray-700 dark:text-gray-300 sofadi text-lg font-medium">Dashboard</span>
+                                                    </NavLink>
+                                                </li>
+                                                <li>
+                                                    <button
+                                                        onClick={handleSignOut}
+                                                        className="flex items-center p-2 space-x-3 rounded-md"
+                                                    >
+                                                        {/* Sign Out Icon */}
+                                                        <FaSignOutAlt className="text-gray-700 dark:text-gray-300 sofadi text-md" />
+
+                                                        {/* Sign Out Text */}
+                                                        <span className="text-gray-700 dark:text-gray-300 sofadi text-lg font-medium">
+                                                            Sign Out
+                                                        </span>
+                                                    </button>
                                                 </li>
                                             </ul>
                                         </div>

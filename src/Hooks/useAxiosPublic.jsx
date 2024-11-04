@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-    baseURL: 'https://pet-haven-bd-server-one.vercel.app'
+    baseURL: `${import.meta.env.VITE_API_URL}`,
 })
 
 const useAxiosPublic = () => {

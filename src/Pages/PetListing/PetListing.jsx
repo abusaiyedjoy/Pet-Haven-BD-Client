@@ -7,9 +7,25 @@ import { BiSolidInjection } from "react-icons/bi";
 import { GiConfirmed } from "react-icons/gi";
 import { FcCancel } from "react-icons/fc";
 import CommonButton from "./../../Components/Buttons/CommonButton";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const PetListing = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const axiosPublic = useAxiosPublic();
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['pets'],
+        queryFn: async () => {
+            const { data } = await axiosPublic.get('/pets');
+            return data;
+        }
+    });
+
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
@@ -27,7 +43,7 @@ const PetListing = () => {
                         onClick={() => {
                             toggleDropdown();
                         }}
-                        className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900  dark:text-gray-300 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+                        className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900  dark:text-gray-300 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:border-gray-600"
                         type="button"
                     >
                         All categories
@@ -38,7 +54,7 @@ const PetListing = () => {
                         <input
                             type="search"
                             id="search-dropdown"
-                            className="block p-2.5 w-full z-20 text-sm text-gray-900  dark:text-gray-300 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary"
+                            className="block p-2.5 w-full z-20 text-sm text-gray-900  dark:text-gray-300 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:border-primary"
                             placeholder="Search Mockups, Logos, Design Templates..."
                             required
                         />
@@ -97,87 +113,50 @@ const PetListing = () => {
                 )}
             </form>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8 mx-3">
-                <div style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 dark:bg-white/20 dark:text-zinc-200 rounded-2xl w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
-                    <div className="flex justify-center items-center space-x-12">
-                        <div className="relative w-[200px] h-[200px] overflow-hidden rounded-md">
-                            <img
-                                className="w-full h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
-                                src={"images[0]"}
-                                alt="Pet Image"
-                            />
-                            <span className="border-r-2 border-dashed border-primary absolute h-full top-0 -right-5"></span>
-                        </div>
+                {data.map((pet) => (
+                    console.log(pet),
+                    <div key={pet._id} style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 dark:bg-white/20 dark:text-zinc-200 rounded-2xl w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
+                        <div className="flex justify-center items-center space-x-6">
+                            <div className="relative w-[250px] h-[200px] overflow-hidden rounded-md">
+                                <img
+                                    className="w-full h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
+                                    src={pet?.images?.[1] || pet?.images?.[0] || "fallback-image-url.jpg"}
+                                    alt="Pet Image"
+                                />
+                                <span className="border-r-2 border-dashed border-primary absolute h-full top-0 -right-5"></span>
+                            </div>
 
-                        <div className="">
-                            <h1 className="text-3xl text-gray-950 dark:text-gray-200 font-semibold roboto py-2">{"name"}</h1>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Gender: <span className="sofia font-normal text-base">{"gender"}</span></h2>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Age: <span className="sofia font-normal text-base">{"age"}</span></h2>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Breed: <span className="sofia font-normal text-base">{"breed"}</span></h2>
+                            <div className="">
+                                <h1 className="text-3xl text-gray-950 dark:text-gray-200 font-semibold roboto py-2">{pet.name}</h1>
+                                <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Gender: <span className="sofia font-normal text-base">{pet.gender}</span></h2>
+                                <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Age: <span className="sofia font-normal text-base">{pet.age}</span></h2>
+                                <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Breed: <span className="sofia font-normal text-base">{pet.breed}</span></h2>
+                            </div>
+                        </div>
+                        <div className="py-5  flex justify-around items-center">
+                            <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><BiSolidInjection size={32} className="text-red-800" /> Vaccinated: <span className="flex justify-center items-center rounded-full sofia font-normal text-base">
+                                {pet.vaccinated === "true" ? (
+                                    <GiConfirmed size={25} className="text-green-600" />
+                                ) : (
+                                    <FcCancel size={25} className="text-red-600" />
+                                )}
+                            </span>
+                            </h2>
+                            <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoCutOutline size={32} className="text-red-800" /> Neutered: <span className="flex justify-center items-center rounded-full sofia font-normal text-base">
+                                {pet.neutered === "true" ? (
+                                    <GiConfirmed size={25} className="text-green-600" />
+                                ) : (
+                                    <FcCancel size={25} className="text-red-600" />
+                                )}
+                            </span>
+                            </h2>
+                            <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{pet.location.district}</span></h2>
+                        </div>
+                        <div className="flex  justify-center items-end my-4">
+                            <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>
                         </div>
                     </div>
-                    <div className="py-5  flex justify-around items-center">
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><BiSolidInjection size={32} className="text-red-800" /> Vaccinated: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{"vaccinated"}<GiConfirmed size={25} className="text-green-600" /></span></h2>
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoCutOutline size={32} className="text-red-800" /> Neutered: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{"neutered"}<FcCancel size={25} /></span></h2>
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{location.district}</span></h2>
-                    </div>
-                    <div className="flex  justify-center items-end my-4">
-                        <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>
-                    </div>
-                </div>
-                <div style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 dark:bg-white/20 rounded-2xl w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
-                    <div className="flex justify-center items-center space-x-12">
-                        <div className="relative w-[200px] h-[200px] overflow-hidden rounded-md">
-                            <img
-                                className="w-full h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
-                                src={"images[0]"}
-                                alt="Pet Image"
-                            />
-                            <span className="border-r-2 border-dashed border-primary absolute h-full top-0 -right-5"></span>
-                        </div>
-
-                        <div className="">
-                            <h1 className="text-3xl text-gray-950 dark:text-gray-200 font-semibold roboto py-2">{"name"}</h1>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Gender: <span className="sofia font-normal text-base">{"gender"}</span></h2>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Age: <span className="sofia font-normal text-base">{"age"}</span></h2>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Breed: <span className="sofia font-normal text-base">{"breed"}</span></h2>
-                        </div>
-                    </div>
-                    <div className="py-5  flex justify-around items-center">
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><BiSolidInjection size={32} className="text-red-800" /> Vaccinated: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{"vaccinated"}<GiConfirmed size={25} className="text-green-600" /></span></h2>
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoCutOutline size={32} className="text-red-800" /> Neutered: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{"neutered"}<FcCancel size={25} /></span></h2>
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{location.district}</span></h2>
-                    </div>
-                    <div className="flex justify-center items-end my-4">
-                        <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>
-                    </div>
-                </div>
-                <div style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 dark:bg-white/20 rounded-2xl w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
-                    <div className="flex justify-center items-center space-x-12">
-                        <div className="relative w-[200px] h-[200px] overflow-hidden rounded-md">
-                            <img
-                                className="w-full h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
-                                src={"images[0]"}
-                                alt="Pet Image"
-                            />
-                            <span className="border-r-2 border-dashed border-primary absolute h-full top-0 -right-5"></span>
-                        </div>
-
-                        <div className="">
-                            <h1 className="text-3xl text-gray-950 dark:text-gray-200 font-semibold roboto py-2">{"name"}</h1>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Gender: <span className="sofia font-normal text-base">{"gender"}</span></h2>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Age: <span className="sofia font-normal text-base">{"age"}</span></h2>
-                            <h2 className="text-lg font-semibold roboto text-gray-900  dark:text-gray-300 border-b-2 border-secondary border-dotted flex justify-start items-center gap-2"><MdPets className="text-red-800" /> Breed: <span className="sofia font-normal text-base">{"breed"}</span></h2>
-                        </div>
-                    </div>
-                    <div className="py-5  flex justify-around items-center">
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><BiSolidInjection size={32} className="text-red-800" /> Vaccinated: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{"vaccinated"}<GiConfirmed size={25} className="text-green-600" /></span></h2>
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoCutOutline size={32} className="text-red-800" /> Neutered: <span className=" flex justify-center items-center rounded-full sofia font-normal text-base">{"neutered"}<FcCancel size={25} /></span></h2>
-                        <h2 className="text-xl font-semibold roboto text-gray-900  dark:text-gray-300 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{location.district}</span></h2>
-                    </div>
-                    <div className="flex justify-center items-end my-4">
-                        <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
     );
