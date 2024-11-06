@@ -63,7 +63,7 @@ const Services = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-gray-800">
+        <div className="min-h-screen bg-white dark:bg-gray-800">
             <Cover
                 image="https://i.ibb.co/LJkTJrb/malek-dridi-0-F7-GRXNOG7g-unsplash.jpg"
                 title="/ Services"

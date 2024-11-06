@@ -5,9 +5,10 @@ import { BiSolidInjection } from "react-icons/bi";
 import { GiConfirmed } from "react-icons/gi";
 import { FcCancel } from "react-icons/fc";
 import CommonButton from "../../../Components/Buttons/CommonButton";
+import { Link } from "react-router-dom";
 
 const PetsCard = ({ pet }) => {
-    const { name, gender, age, vaccinated, breed, neutered, location, images } = pet;
+    const { _id, name, gender, age, vaccinated, breed, neutered, location, images } = pet;
     return (
         <div style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
             <div className="flex justify-center items-center space-x-12">
@@ -47,7 +48,9 @@ const PetsCard = ({ pet }) => {
                 <h2 className="text-xl font-semibold roboto text-gray-900 flex flex-col justify-start items-center gap-2"><IoLocation size={32} className="text-red-800" /> Location: <span className="sofia font-normal text-base">{location?.district}</span></h2>
             </div>
             <div className="flex justify-center items-end my-4">
-                <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>
+                <Link to={`/petListing/${_id}`}>
+                    <CommonButton title={"More Info..."} width={"40"} hight={"12"}></CommonButton>
+                </Link>
             </div>
         </div>
     );
