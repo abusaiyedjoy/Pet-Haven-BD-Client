@@ -9,11 +9,24 @@ import { FcCancel } from "react-icons/fc";
 import CommonButton from "./../../Components/Buttons/CommonButton";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import queryString from "query-string";
 
 const PetListing = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const axiosPublic = useAxiosPublic();
+
+    const navigate = useNavigate();
+    const handleClick = (category) => {
+        let currentCategory = { category: category }
+
+        const url = queryString.stringifyUrl({
+            url: '/',
+            query: currentCategory
+        })
+        navigate(url);
+        console.log(currentCategory);
+    }
 
     const { data: pets = [], isLoading } = useQuery({
         queryKey: ['pets'],
@@ -33,6 +46,9 @@ const PetListing = () => {
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
+
+
+
     return (
         <section className={`min-h-screen bg-white/90 dark:bg-gray-800`}>
             <Cover
@@ -79,7 +95,10 @@ const PetListing = () => {
                                 <ul className="py-2 px-2 text-sm text-gray-700 dark:text-gray-200">
                                     <li>
                                         <button
-                                            onClick={() => { setDropdownOpen(!dropdownOpen) }}
+                                            onClick={() => {
+                                                setDropdownOpen(!dropdownOpen);
+                                                handleClick('cats');
+                                            }}
                                             type="button"
                                             className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
                                         >
@@ -88,7 +107,10 @@ const PetListing = () => {
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => { setDropdownOpen(!dropdownOpen) }}
+                                            onClick={() => {
+                                                setDropdownOpen(!dropdownOpen);
+                                                handleClick('dogs');
+                                            }}
                                             type="button"
                                             className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
                                         >
@@ -97,7 +119,10 @@ const PetListing = () => {
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => { setDropdownOpen(!dropdownOpen) }}
+                                            onClick={() => {
+                                                setDropdownOpen(!dropdownOpen);
+                                                handleClick('rabbits');
+                                            }}
                                             type="button"
                                             className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
                                         >
@@ -106,7 +131,10 @@ const PetListing = () => {
                                     </li>
                                     <li>
                                         <button
-                                            onClick={() => { setDropdownOpen(!dropdownOpen) }}
+                                            onClick={() => {
+                                                setDropdownOpen(!dropdownOpen);
+                                                handleClick('birds');
+                                            }}
                                             type="button"
                                             className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
                                         >

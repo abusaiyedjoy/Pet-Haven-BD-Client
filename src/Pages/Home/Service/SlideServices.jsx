@@ -61,7 +61,7 @@ const SlideServices = () => {
                 modules={[Autoplay, Pagination]}
                 className="mySwiper flex justify-center items-center"
             >
-                {servicesData.map((service) => (
+                {servicesData?.map((service) => (
                     <SwiperSlide key={service.id}>
                         <SlideCard service={service} />
                     </SwiperSlide>
