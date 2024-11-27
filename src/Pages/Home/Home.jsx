@@ -5,7 +5,6 @@ import AllPets from "./AllPets/AllPets";
 import Blog from "./Blog/Blog"
 import Gallery from "./Gallery/Gallery"
 import Team from "./ourTeam/Team"
-import Testimonial from "./AboutUs/Testimonial"
 
 
 const Home = () => {
@@ -19,7 +18,7 @@ const Home = () => {
         <Gallery />
         <Blog />
         <Team />
-        <Testimonial />
+        {/* <Testimonial /> */}
       </>
     </section>
   );
