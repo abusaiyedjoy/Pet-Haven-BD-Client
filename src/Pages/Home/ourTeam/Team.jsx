@@ -49,7 +49,7 @@ const Team = () => {
                             <div className="relative cursor-pointer w-full h-[250px] rounded-t-xl overflow-hidden group">
                                 <img
                                     className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                                    src={image || "https://via.placeholder.com/320x250"} // Fallback image
+                                    src={image || "https://via.placeholder.com/320x250"}
                                     alt={`${name || "Team Member"}'s Profile`}
                                 />
                                 {/* Gradient Overlay */}

@@ -1,15 +1,18 @@
 import toast from "react-hot-toast";
-import { FaHome, FaSearch, FaComments, FaUser, FaDonate } from "react-icons/fa";
+import { FaHome, FaUser, FaDonate, FaSearch, FaComments } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import { MdAddTask } from "react-icons/md";
+import { RiApps2AddFill } from "react-icons/ri";
 
 const Sidebar = () => {
-    const isAdmin = false;
-    const { signOutUser, user } = useAuth();
+    const isAdmin = false; // Change to true for admin view
+    const { signOutUser } = useAuth();
     const navigate = useNavigate();
 
+    // Sign out handler with confirmation
     const handleSignOut = () => {
         Swal.fire({
             title: "Are you sure?",
@@ -18,114 +21,189 @@ const Sidebar = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Sign Out"
+            confirmButtonText: "Sign Out",
         }).then((result) => {
             if (result.isConfirmed) {
                 signOutUser()
                     .then(() => {
-                        navigate('/');
-                        toast.success('Sign Out Successfully!');
+                        navigate("/");
+                        toast.success("Signed Out Successfully!");
                     })
                     .catch((error) => {
-                        console.log(error);
+                        console.error(error);
                     });
             }
         });
     };
 
     return (
-        <div className="p-3 min-h-screen sofadi border-r-2 relative border-primary space-y-2 w-60 bg-orange-100 text-black dark:bg-gray-900 dark:text-gray-200">
-            <div className="flex items-center p-2 space-x-4">
-                <img src="https://i.ibb.co.com/CtfJQ7K/Black-Cat-Flat-Illustrative-Pets-Logo-removebg-preview.png" alt="" className="w-6 h-6 lg:w-8 lg:h-8 rounded-full dark:bg-gray-500" />
-                <div>
-                    <h2 className="text-2xl roboto font-semibold">Pet Haven BD</h2>
-                </div>
-            </div>
-            <div className="flex flex-col justify-between gap-10 items-center">
-                <ul className="pt-2 pb-4 menu font-medium space-y-1 text-lg">
+        <div className="p-3 min-h-screen border-r-2 roboto border-primary space-y-2 w-60 bg-orange-100 text-black dark:bg-gray-900 dark:text-gray-200">
+
+            {/* Navigation Menu */}
+            <div className="flex flex-col gap-10">
+                <ul className="space-y-3 text-md font-medium">
+                    {/* Common Navigation */}
                     <li>
-                        <NavLink to="/" className="flex items-center p-2 gap-5 rounded-md">
-                            <FaHome />
-                            Home
+                        <NavLink
+                            to="/dashboard/userHome"
+                            className={({ isActive }) =>
+                                `flex items-center gap-5 rounded-md p-2 ${
+                                    isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                }`
+                            }
+                        >
+                            <FaUser />
+                            My Profile
                         </NavLink>
                     </li>
-                    {isAdmin ? (
+
+                    {/* Admin Links */}
+                    {isAdmin && (
                         <>
                             <li>
-                                <NavLink to="/dashboard/users" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/users"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaUser />
-                                    <span>All Users</span>
+                                    Manage Users
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/pets" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/manageAllPets"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaHome />
-                                    <span>All Pets</span>
+                                    All Pets
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/donations" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/allDonations"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaDonate />
-                                    <span>All Donations</span>
+                                    All Donations
                                 </NavLink>
                             </li>
                         </>
-                    ) : (
+                    )}
+
+                    {/* User Links */}
+                    {!isAdmin && (
                         <>
                             <li>
-                                <NavLink to="/dashboard/addPets" className="flex items-center p-2 space-x-3 rounded-md">
-                                    <FaHome />
-                                    <span>Add a Pet</span>
+                                <NavLink
+                                    to="/dashboard/addPets"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
+                                    <RiApps2AddFill />
+                                    Add a Pet
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/addedPets" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/addedPets"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
+                                    <MdAddTask />
+                                    My Added Pets
+                                </NavLink>
+                            </li>
+
+
+                            <li>
+                                <NavLink
+                                    to="/dashboard/adoption"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaSearch />
-                                    <span>My Added Pets</span>
+                                    My Adoption Requests
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/adoption" className="flex items-center p-2 space-x-3 rounded-md">
-                                    <FaSearch />
-                                    <span>Adoption Request</span>
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/campaign" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/campaign"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaComments />
-                                    <span>Create Donation Campaign</span>
+                                    Create Donation Campaign
                                 </NavLink>
-                            </li>
+                            </li> 
                             <li>
-                                <NavLink to="/dashboard/myCampaign" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/myCampaign"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaComments />
-                                    <span>My Donation Campaigns</span>
+                                    My Donation Campaigns
                                 </NavLink>
                             </li>
+
+
                             <li>
-                                <NavLink to="/dashboard/myDonation" className="flex items-center p-2 space-x-3 rounded-md">
+                                <NavLink
+                                    to="/dashboard/myDonation"
+                                    className={({ isActive }) =>
+                                        `flex items-center gap-5 rounded-md p-2 ${
+                                            isActive ? "!text-white !bg-primary" : "hover:bg-primary hover:text-white"
+                                        }`
+                                    }
+                                >
                                     <FaDonate />
-                                    <span>My Donations</span>
+                                    My Donations
                                 </NavLink>
                             </li>
                         </>
                     )}
                 </ul>
-                <ul className="pt-2 pb-4 space-y-3 border-t-2 border-secondary w-[90%] pl-4 text-lg absolute bottom-2">
-                    <li>
-                        <NavLink to="/" className="flex items-center font-semibold gap-2">
-                            <FaUser />
-                            {user ? user?.displayName : 'Profile'}
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink onClick={handleSignOut} className="flex font-bold items-center gap-2">
-                            <PiSignOutBold />
-                            <span>Logout</span>
-                        </NavLink>
-                    </li>
-                </ul>
             </div>
+
+            {/* Logout Section */}
+            <ul className="space-y-3 border-t-2 border-secondary pt-4">
+                <li>
+                    <button
+                        onClick={handleSignOut}
+                        className="flex font-bold items-center gap-2 w-full text-lg hover:bg-primary hover:text-white rounded-md p-2"
+                    >
+                        <PiSignOutBold />
+                        Logout
+                    </button>
+                </li>
+            </ul>
         </div>
     );
 };

@@ -52,7 +52,6 @@ const Navbar = () => {
                     Home
                 </NavLink>
             </li>
-
             <li><NavLink to="/petListing" className={({ isActive }) =>
                 isActive
                     ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
@@ -73,11 +72,11 @@ const Navbar = () => {
                     ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
                     : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
             }>Contact Us</NavLink></li>
-            <li><NavLink to="/campains" className={({ isActive }) =>
+            {/* <li><NavLink to="/campains" className={({ isActive }) =>
                 isActive
                     ? "!text-primary bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] bg-no-repeat bg-center !bg-transparent bg-[length:40px_35px]"
                     : "hover:bg-[url('https://i.ibb.co.com/XDQ49N5/Black-Cat-Flat-Illustrative-Pets-Logo-2-removebg-preview.png')] hover:text-primary dark:hover:text-primary hover:bg-center hover:bg-no-repeat !bg-transparent hover:transition-all hover:duration-300 hover:ease-in-out text-gray-800 dark:text-gray-200 hover:bg-[length:40px_35px]"
-            }>Donation Campains</NavLink></li>
+            }>Donation Campains</NavLink></li> */}
 
         </>
     );
@@ -176,7 +175,7 @@ const Navbar = () => {
                                                 </p>
                                                 <hr className="my-2 border-gray-400 " />
                                                 <li>
-                                                    <NavLink to="/dashboard" className="flex items-center p-2 space-x-3 rounded-md">
+                                                    <NavLink to="/dashboard/userHome" className="flex items-center p-2 space-x-3 rounded-md">
                                                         <FaUser className="text-gray-700 dark:text-gray-300 sofadi text-md " />
                                                         <span className="text-gray-700 dark:text-gray-300 sofadi text-lg font-medium">Dashboard</span>
                                                     </NavLink>
