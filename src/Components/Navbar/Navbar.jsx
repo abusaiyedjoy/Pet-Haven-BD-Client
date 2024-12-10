@@ -167,10 +167,10 @@ const Navbar = () => {
                                                         src={user?.photoURL ? user.photoURL : "https://i.ibb.co/DLcr2Vk/sam-moghadam-khamseh-yx-ZSAjy-To-P4-unsplash.jpg"}
                                                         alt="Img"
                                                     /></Link>
-                                                <p className="font-semibold sofadi text-gray-700 text-center mr-2 mb-2 text-main ">
+                                                <p className="font-semibold sofadi text-gray-700 dark:text-gray-300 text-center mr-2 mb-2 text-main ">
                                                     {user?.displayName ? user.displayName : "Name not found"}
                                                 </p>
-                                                <p className="font-medium text-gray-700 sofia text-center mr-2 mb-2  text-main ">
+                                                <p className="font-medium text-gray-700 dark:text-gray-300 sofia text-center mr-2 mb-2  text-main ">
                                                     {user.email}
                                                 </p>
                                                 <hr className="my-2 border-gray-400 " />

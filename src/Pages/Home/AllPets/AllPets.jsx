@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import usePet from "../../../Hooks/usePets";
 import LoadingSpinner from "../../../Components/Shared/Loading";
 import Share from "../../../Components/Buttons/Share";
@@ -12,11 +13,17 @@ import {
 import PetsCard from "./PetsCard";
 import './AllPets.css'
 import { MdPets } from "react-icons/md";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const AllPets = () => {
     const [page, setPage] = useState(1);
     const limit = 8;
-    const [totalPages, loading] = usePet(page, limit);
+    const [totalPages] = usePet(page, limit);
+    const axiosPublic = useAxiosPublic();
+    const [params, setParams]=useSearchParams();
+    const category=params.get('category');
+
 
     const handleNextPage = () => {
         if (page < totalPages) {
@@ -32,163 +39,13 @@ const AllPets = () => {
         }
     };
 
-    const PetData = [
-        {
-            id: 1,
-            name: "Buddy",
-            gender: "Male",
-            age: "2 years",
-            vaccinated: "true",
-            breed: "Golden Retriever",
-            description:
-                "Buddy is a friendly and active Golden Retriever who loves to play. He's great with children and other pets, making him an ideal family companion.",
-            size: "Large",
-            color: "Golden",
-            weight: "30 kg",
-            healthStatus: "Healthy",
-            neutered: "false",
-            adoptionFee: "$150",
-            location: {
-                city: "Dhaka",
-                district: "Dhaka",
-                country: "Bangladesh"
-            },
-            images: [
-                "https://i.ibb.co/mz920js/michael-sum-LEpfef-Qf4r-U-unsplash.jpg",
-                "https://i.ibb.co/VJ2MjHk/sandy-millar-k-KAa-Ce-Gf5w-Y-unsplash.jpg"
-            ],
-            contactInfo: {
-                phone: "+880-1712345678",
-                email: "adopt@petshelterbd.com"
-            },
-            category: "dog",
-            postedDate: "2024-09-23"
-        },
-        {
-            id: 2,
-            name: "Whiskers",
-            gender: "Female",
-            age: "3 years",
-            vaccinated: "true",
-            breed: "Siamese Cat",
-            description:
-                "Whiskers is a calm and affectionate cat. She loves to curl up in the sun and is great for a quiet home.",
-            size: "Medium",
-            color: "Gray",
-            weight: "4 kg",
-            healthStatus: "Healthy",
-            neutered: "true",
-            adoptionFee: "Free",
-            location: {
-                city: "Chittagong",
-                district: "Chittagong",
-                country: "Bangladesh"
-            },
-            images: [
-                "https://i.ibb.co/ZzbzdwY/zane-lee-Vv-TVkc-p-eg-unsplash.jpg",
-                "https://i.ibb.co/GFvC568/nita-anggraeni-goenawan-2-Jiha-EVs8-Dc-unsplash.jpg"
-            ],
-            contactInfo: {
-                phone: "+880-1812345678",
-                email: "adopt@petshelterbd.com"
-            },
-            category: "cat",
-            postedDate: "2024-09-23"
-        },
-        {
-            id: 3,
-            name: "Charlie",
-            gender: "Male",
-            age: "1 year",
-            vaccinated: "true",
-            breed: "Parrot",
-            description:
-                "Charlie is a colorful and talkative parrot who loves to mimic sounds. Perfect for someone looking for a lively companion.",
-            size: "Small",
-            color: "Green and Red",
-            weight: "0.5 kg",
-            healthStatus: "Healthy",
-            neutered: "false",
-            adoptionFee: "$50",
-            location: {
-                city: "Sylhet",
-                district: "Sylhet",
-                country: "Bangladesh"
-            },
-            images: [
-                "https://i.ibb.co/gdGggK2/dominik-lange-BFsm5vldl2-I-unsplash.jpg",
-                "https://i.ibb.co/yBkdPf8/pablo-martinez-Adagxt-VKRWE-unsplash.jpg"
-            ],
-            contactInfo: {
-                phone: "+880-1912345678",
-                email: "adopt@petshelterbd.com"
-            },
-            category: "bird",
-            postedDate: "2024-09-23"
-        },
-        {
-            id: 4,
-            name: "Snowball",
-            gender: "Female",
-            age: "6 months",
-            vaccinated: "false",
-            breed: "Rabbit",
-            description:
-                "Snowball is a fluffy and energetic rabbit who enjoys hopping around. She’s great for families with kids.",
-            size: "Small",
-            color: "White",
-            weight: "1.2 kg",
-            healthStatus: "Healthy",
-            neutered: "true",
-            adoptionFee: "$30",
-            location: {
-                city: "Rajshahi",
-                district: "Rajshahi",
-                country: "Bangladesh"
-            },
-            images: [
-                "https://i.ibb.co/4gRtCV2/taylor-kopel-WX4i1-Jq-o0-Y-unsplash.jpg",
-                "https://i.ibb.co/mDgvb8D/andrew-pons-lyl-Cw4zc-A7-I-unsplash.jpg"
-            ],
-            contactInfo: {
-                phone: "+880-1712346789",
-                email: "adopt@petshelterbd.com"
-            },
-            category: "rabbit",
-            postedDate: "2024-09-23"
-        },
-        {
-            id: 5,
-            name: "Thunder",
-            gender: "Male",
-            age: "4 years",
-            vaccinated: "true",
-            breed: "Arabian Horse",
-            description:
-                "Thunder is a majestic and strong Arabian horse. He is well-trained and ready for riding.",
-            size: "Large",
-            color: "Brown",
-            weight: "400 kg",
-            healthStatus: "Healthy",
-            neutered: "false",
-            adoptionFee: "$2000",
-            location: {
-                city: "Khulna",
-                district: "Khulna",
-                country: "Bangladesh"
-            },
-            images: [
-                "https://i.ibb.co/mz920js/michael-sum-LEpfef-Qf4r-U-unsplash.jpg",
-                "https://i.ibb.co/GFvC568/nita-anggraeni-goenawan-2-Jiha-EVs8-Dc-unsplash.jpg"
-            ],
-            contactInfo: {
-                phone: "+880-1512345678",
-                email: "adopt@petshelterbd.com"
-            },
-            category: "horse",
-            postedDate: "2024-09-23"
+    const { data: PetData = [], isLoading } = useQuery({
+        queryKey: ['pet', category],
+        queryFn: async () => {
+            const { data } = await axiosPublic.get(`/pets?category=${category}`);
+            return data;
         }
-    ];
+    });
 
 
     const renderSwiper = () => (
@@ -212,11 +69,16 @@ const AllPets = () => {
                  Pagination]}
             className="w-full mx-auto flex justify-center items-center"
         >
-            {PetData.map((pet) => (
+            {PetData ? PetData?.map((pet) => (
                 <SwiperSlide key={pet.id}>
                     <PetsCard pet={pet} />
                 </SwiperSlide>
-            ))}
+            )) : (
+                <div className="flex justify-center items-center w-full h-full">
+                    <div className="w-10 h-10 animate-[spin_1s_linear_infinite] rounded-full border-double border-4 border-r-0 border-l-0 border-b-sky-400 border-t-sky-700"></div>
+                    <h1>Loading</h1>
+                </div>
+            )}
         </Swiper>
     );
 
@@ -230,7 +92,7 @@ const AllPets = () => {
                 </h2>
             </div>
 
-            {loading ? (
+            {isLoading ? (
                 <LoadingSpinner />
             ) : (
                 <>

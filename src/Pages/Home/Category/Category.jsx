@@ -6,35 +6,35 @@ import CategoryBox from "./CategoryBox";
 
 const Category = () => {
 
-    const Pets = [
+    const PetsCategory = [
         {
           _id: "1314",
-          category: "Cats",
+          category: "cat",
           pet_image: <FaCat style={{ width: 72, height: 72 }} />,
         },
         {
           _id: "1315",
-          category: "Dogs",
+          category: "dog",
           pet_image: <FaDog style={{ width: 72, height: 72 }} />,
         },
         {
           _id: "1316",
-          category: "Rabbits",
+          category: "rabbit",
           pet_image: <GiRabbit style={{ width: 72, height: 72 }} />,
         },
         {
           _id: "1317",
-          category: "Birds",
+          category: "bird",
           pet_image: <GiHummingbird style={{ width: 72, height: 72 }} />,
         },
         {
           _id: "1318",
-          category: "Horse",
+          category: "hourse",
           pet_image: <FaHorse style={{ width: 72, height: 72 }} />,
         },
         {
           _id: "1318",
-          category: "Others",
+          category: "others",
           pet_image: <CgMoreVertical style={{ width: 72, height: 72 }} />,
         }
       ];
@@ -51,7 +51,7 @@ const Category = () => {
 
                 <div className="flex gap-24 flex-wrap justify-center items-center">
                     {
-                        Pets?.map(item => <CategoryBox key={item?._id} category={item?.category} pet_image={item?.pet_image}/>
+                        PetsCategory?.map(item => <CategoryBox key={item?._id} category={item?.category} pet_image={item?.pet_image}/>
                     )},
                 </div>
             </div>

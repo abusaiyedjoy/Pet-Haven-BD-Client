@@ -35,7 +35,7 @@ const PetListing = () => {
             return data;
         }
     });
-
+    const sortedPets = pets.sort((a, b) => new Date(b.postedDate) - new Date(a.postedDate));
 
     if (isLoading) {
         return (<div className="flex justify-center items-center w-full h-screen">
@@ -85,7 +85,7 @@ const PetListing = () => {
                                         type="search"
                                         id="search-dropdown"
                                         className="block p-2.5 w-full z-20 text-sm text-gray-900  dark:text-gray-300 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:border-primary"
-                                        placeholder="Search Mockups, Logos, Design Templates..."
+                                        placeholder="Search pets"
                                         required
                                     />
                                     <button
@@ -99,14 +99,14 @@ const PetListing = () => {
                             {dropdownOpen && (
                                 <div
                                     id="dropdown"
-                                    className="z-50 my-3 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                                    className="relative z-50 my-3 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
                                 >
-                                    <ul className="py-2 z-50 px-2 text-sm text-gray-700 dark:text-gray-200">
+                                    <ul className="relative py-2 z-50 px-2 text-sm text-gray-700 dark:text-gray-200">
                                         <li>
                                             <button
                                                 onClick={() => {
                                                     setDropdownOpen(!dropdownOpen);
-                                                    handleClick('cats');
+                                                    handleClick('cat');
                                                 }}
                                                 type="button"
                                                 className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
@@ -118,7 +118,7 @@ const PetListing = () => {
                                             <button
                                                 onClick={() => {
                                                     setDropdownOpen(!dropdownOpen);
-                                                    handleClick('dogs');
+                                                    handleClick('dog');
                                                 }}
                                                 type="button"
                                                 className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
@@ -130,7 +130,7 @@ const PetListing = () => {
                                             <button
                                                 onClick={() => {
                                                     setDropdownOpen(!dropdownOpen);
-                                                    handleClick('rabbits');
+                                                    handleClick('rabbit');
                                                 }}
                                                 type="button"
                                                 className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
@@ -142,7 +142,7 @@ const PetListing = () => {
                                             <button
                                                 onClick={() => {
                                                     setDropdownOpen(!dropdownOpen);
-                                                    handleClick('birds');
+                                                    handleClick('bird');
                                                 }}
                                                 type="button"
                                                 className="inline-flex w-full px-4 py-2 hover:bg-gray-100 rounded-md dark:hover:bg-gray-600 dark:hover:text-white"
@@ -158,15 +158,16 @@ const PetListing = () => {
                 </div>
             </div>
             {/* Pets Section */}
-            {pets && pets.length > 0 ? (
+            
+            {sortedPets && sortedPets.length > 0 ? (
                 <>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8 mx-3">
-                        {pets.map((pet) => (
+                        {sortedPets.map((pet) => (
                             <div key={pet._id} style={{ backgroundImage: `url("https://i.ibb.co.com/3htn71W/Adopt-bg.png")` }} className="bg-white/90 dark:bg-white/20 dark:text-zinc-200 rounded-2xl w-full h-full px-4 py-5 sm:px-6 lg:px-8 lg:py-8 mx-auto">
                                 <div className="flex justify-center items-center space-x-6">
-                                    <div className="relative -z-0 w-[250px] h-[200px] overflow-hidden rounded-md">
+                                    <div className="relative w-[250px] h-[200px] overflow-hidden rounded-md">
                                         <img
-                                            className="w-full h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
+                                            className="w-full relative z-0 h-full object-cover rounded-lg hover:scale-125 cursor-pointer transition-transform duration-500 ease-in-out"
                                             src={pet?.images?.[1] || pet?.images?.[0] || "fallback-image-url.jpg"}
                                             alt="Pet Image"
                                         />

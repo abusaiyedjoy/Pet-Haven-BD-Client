@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import toast from "react-hot-toast";
 
 const PetDetails = () => {
     const { user } = useAuth();
@@ -22,6 +23,11 @@ const PetDetails = () => {
     };
     ScrollToTop();
 
+    const handleAdopt = (e) => {
+        e.preventDefault();
+        toast.success('Adopted Successfully!');
+    }
+
 
 
     const { data: petData, isLoading } = useQuery({
@@ -32,7 +38,7 @@ const PetDetails = () => {
         },
     });
 
-    console.log(petData);
+
 
 
     if (isLoading) {
@@ -43,17 +49,17 @@ const PetDetails = () => {
 
     return (
         <div className="w-full mx-auto overflow-hidden bg-white dark:bg-gray-800">
-            <h1 className="text-5xl font-bold text-center my-5 text-gray-700 dark:text-gray-100">
+            <h1 className="text-2xl lg:text-5xl font-bold text-center my-5 roboto text-gray-700 dark:text-gray-100">
                 Adopt {petData?.name}
             </h1>
-            <div className="flex justify-between items-center my-4 w-[80%] mx-auto">
+            <div className="flex justify-between sofia items-center my-4 w-[80%] mx-auto">
                 <a
-                    className="text-2xl font-medium text-gray-700 dark:text-gray-100 hover:text-[#2E256F] hover:underline cursor-pointer"
+                    className="text-xl font-medium text-gray-700 dark:text-gray-100  hover:underline hover:text-secondary dark:hover:text-secondary cursor-pointer"
                     onClick={handleGoBack}
                 >
-                    Go Back
+                    Back
                 </a>
-                <h1 className="text-xl font-medium text-gray-700 dark:text-gray-100">
+                <h1 className="text-md lg:text-lg font-medium text-gray-700 dark:text-gray-100">
                     Posted On: {petData?.postedDate}
                 </h1>
             </div>
@@ -66,9 +72,9 @@ const PetDetails = () => {
             </Swiper>
             <form className="w-[80%] mx-auto h-auto my-20">
                 <div className="divider my-8"></div>
-                <h1 className="text-5xl font-bold text-center mb-3 text-gray-700 dark:text-gray-100">Facts About Me!</h1>
+                <h1 className="text-5xl font-bold text-center mb-3 text-gray-700 dark:text-gray-100 roboto">Facts About Me!</h1>
 
-                <div className="px-6 py-4 bg-white dark:bg-gray-800 text-gray-800 grid grid-cols-1 sm:grid-cols-2 w-full mx-auto">
+                <div className="px-6 py-4 bg-white sofia dark:bg-gray-800 text-gray-800 grid grid-cols-1 sm:grid-cols-2 w-full mx-auto">
                     <h1 className="flex items-center mt-4 text-gray-800 text-2xl font-bold dark:text-gray-200">
                         Age: {petData?.age}
                     </h1>
@@ -100,8 +106,8 @@ const PetDetails = () => {
                 <div className="flex justify-center items-center gap-10 mt-3 w-full">
                     <button
                         onClick={() => document.getElementById('my_modal_3').showModal()}
-                        className="cursor-pointer inline-flex justify-center items-center rounded-full w-full text-center py-2 text-2xl font-mono font-semibold text-sky-600 hover:text-white border-2 border-sky-600
-                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-sky-600 duration-300 focus:bg-transparent"
+                        className="cursor-pointer inline-flex justify-center items-center rounded-full w-full text-center py-2 text-2xl font-mono font-semibold text-red-600 hover:text-white border-2 border-red-600
+                transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-red-600 duration-300 focus:bg-transparent"
                     >
                         Adopt
                     </button>
@@ -111,8 +117,8 @@ const PetDetails = () => {
                             <form method="dialog">
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                             </form>
-                            <h1 className="text-3xl font-bold text-center mb-3 text-gray-700 dark:text-gray-100">
-                                {user?.displayName} Info!
+                            <h1 className="text-3xl text-third sofadi font-bold text-center mb-3">
+                                Hi I'm {petData?.name}!
                             </h1>
                             <div className="px-6 py-4 bg-white dark:bg-gray-800 text-gray-800 grid grid-cols-1 gap-8 w-full mx-auto">
                                 <div>
@@ -156,9 +162,9 @@ const PetDetails = () => {
                                     />
                                 </div>
                             </div>
-                            <button
-                                className="cursor-pointer mt-4 inline-flex justify-center items-center rounded-full w-full text-center py-2 text-xl font-mono font-semibold text-sky-600 hover:text-white border-2 border-sky-600
-                        transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-sky-600 duration-300 focus:bg-transparent"
+                            <button onSubmit={handleAdopt}
+                                className="cursor-pointer mt-4 inline-flex justify-center items-center rounded-full w-full text-center py-2 text-xl font-mono font-semibold text-red-600 hover:text-white border-2 border-red-600
+                        transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-90 hover:bg-red-600 duration-300 focus:bg-transparent"
                             >
                                 Submit
                             </button>
