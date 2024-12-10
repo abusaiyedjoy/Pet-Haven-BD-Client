@@ -1,202 +1,366 @@
-import { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Select from 'react-select';
-import axios from 'axios';
-import * as Yup from 'yup';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import 'react-quill/dist/quill.snow.css';
-import ReactQuill from 'react-quill';
-import toast from 'react-hot-toast';
+import { useState } from "react";
+import axios from "axios";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import Select from "react-select";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const categories = [
-    { value: 'cat', label: 'Cat' },
-    { value: 'dog', label: 'Dog' },
-    { value: 'rabbit', label: 'Rabbit' },
-    { value: 'bird', label: 'Bird' },
-    { value: 'other', label: 'Other' }
+    { value: "cat", label: "Cat" },
+    { value: "dog", label: "Dog" },
+    { value: "rabbit", label: "Rabbit" },
+    { value: "bird", label: "Bird" },
+    { value: "other", label: "Other" },
 ];
 
-const AddPets = () => {
-    const [imageUrl, setImageUrl] = useState('');
+const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    gender: Yup.string().required("Gender is required"),
+    age: Yup.string().required("Age is required"),
+    vaccinated: Yup.string().required("Vaccination status is required"),
+    breed: Yup.string().required("Breed is required"),
+    size: Yup.string().required("Size is required"),
+    color: Yup.string().required("Color is required"),
+    weight: Yup.string().required("Weight is required"),
+    healthStatus: Yup.string().required("Health status is required"),
+    neutered: Yup.string().required("Neutering status is required"),
+    adoptionFee: Yup.string().required("Adoption fee is required"),
+    city: Yup.string().required("City is required"),
+    district: Yup.string().required("District is required"),
+    country: Yup.string().required("Country is required"),
+    phone: Yup.string().required("Phone is required"),
+    email: Yup.string().email("Invalid email format").required("Email is required"),
+    category: Yup.string().required("Category is required"),
+    description: Yup.string().required("Description is required"),
+});
+
+const AddPetsPage = () => {
     const [loading, setLoading] = useState(false);
-
-    const initialValues = {
-        pet_image: '',
-        pet_name: '',
-        pet_age: '',
-        pet_color: '',
-        pet_gender: '',
-        category: '',
-        pet_location: '',
-        vaccinated: '',
-        neutered_spayed: '',
-        shortDescription: '',
-        longDescription: ''
-    };
-
-    const validationSchema = Yup.object({
-        pet_name: Yup.string().required('Required'),
-        pet_age: Yup.string().required('Required'),
-        pet_color: Yup.string().required('Required'),
-        pet_gender: Yup.string().required('Required'),
-        category: Yup.string().required('Required'),
-        pet_location: Yup.string().required('Required'),
-        vaccinated: Yup.string().required('Required'),
-        neutered_spayed: Yup.string().required('Required'),
-        shortDescription: Yup.string().required('Required'),
-        longDescription: Yup.string().required('Required')
-    });
+    const [imageUrls, setImageUrls] = useState([]);
 
     const handleImageUpload = async (event, setFieldValue) => {
         setLoading(true);
-        const file = event.currentTarget.files[0];
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('upload_preset', 'your_upload_preset');
+        const files = Array.from(event.target.files);
+        const urls = [];
 
         try {
-            const response = await axios.post('https://api.cloudinary.com/v1_1/your_cloud_name/image/upload', formData);
-            setImageUrl(response.data.secure_url);
-            setFieldValue('pet_image', response.data.secure_url);
+            for (let file of files) {
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("upload_preset", "your_upload_preset");
+
+                const response = await axios.post(
+                    "https://api.cloudinary.com/v1_1/your_cloud_name/image/upload",
+                    formData
+                );
+                urls.push(response.data.secure_url);
+            }
+            setImageUrls(urls);
+            setFieldValue("images", urls);
         } catch (error) {
-            console.error('Error uploading image:', error);
+            console.error("Error uploading images:", error);
         } finally {
             setLoading(false);
         }
     };
 
-    const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    const handleSubmit = async (values, { setSubmitting, resetForm }) => {
         try {
-            await axios.post('https://pet-haven-bd-server-one.vercel.app/pets', values);
+            await axios.post("https://pet-haven-bd-server-one.vercel.app/pets", values);
+            toast.success("The pet has been added successfully!");
             resetForm();
-            setImageUrl('');
-            toast.success('The pet has been added successfully!');
+            setImageUrls([]);
         } catch (error) {
-            console.error('Error adding pet:', error);
-            toast.error('Failed to add the pet.');
+            console.error("Error adding pet:", error);
+            toast.error("Failed to add the pet.");
+        } finally {
+            setSubmitting(false);
         }
-        setSubmitting(false);
     };
 
     return (
-        <div className={`container mx-auto p-4`}>
-            <h2 className="text-2xl font-semibold mb-4">Add a Pet</h2>
-            <Formik
-                initialValues={initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
-                {({ setFieldValue, isSubmitting, values }) => (
-                    <Form>
-                        <div className="mb-4">
-                            <label htmlFor="pet_image" className="block text-gray-700 dark:text-gray-300">Pet Image</label>
-                            <input
-                                type="file"
-                                name="pet_image"
-                                onChange={(event) => handleImageUpload(event, setFieldValue)}
-                                className="mt-1 block w-full"
-                            />
-                            {loading ? (
-                                <Skeleton height={128} width={128} className="mt-2" />
-                            ) : (
-                                imageUrl && <img src={imageUrl} alt="Pet" className="mt-2 h-32 w-32 object-cover" />
-                            )}
-                            <ErrorMessage name="pet_image" component="div" className="text-red-500 text-sm" />
-                        </div>
+        <div className="min-h-screen bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 p-6">
+            <Toaster />
+            <div className="container mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-md p-6">
+                <h1 className="text-3xl font-bold mb-6 text-center">Add a Pet</h1>
 
-                        <div className="mb-4">
-                            <label htmlFor="pet_name" className="block text-gray-700 dark:text-gray-300">Pet Name</label>
-                            <Field name="pet_name" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="pet_name" component="div" className="text-red-500 text-sm" />
-                        </div>
+                <Formik
+                    initialValues={{
+                        name: "",
+                        gender: "",
+                        age: "",
+                        vaccinated: "",
+                        breed: "",
+                        size: "",
+                        color: "",
+                        weight: "",
+                        healthStatus: "",
+                        neutered: "",
+                        adoptionFee: "",
+                        city: "",
+                        district: "",
+                        country: "",
+                        phone: "",
+                        email: "",
+                        category: "",
+                        description: "",
+                        images: [],
+                    }}
+                    validationSchema={validationSchema}
+                    onSubmit={handleSubmit}
+                >
+                    {({ isSubmitting, setFieldValue }) => (
+                        <Form>
+                            {/* Name */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Name</label>
+                                <Field
+                                    type="text"
+                                    name="name"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="name" component="div" className="text-red-500 text-sm" />
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="pet_age" className="block text-gray-700 dark:text-gray-300">Pet Age</label>
-                            <Field name="pet_age" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="pet_age" component="div" className="text-red-500 text-sm" />
-                        </div>
+                            {/* Gender */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Gender</label>
+                                <Field
+                                    as="select"
+                                    name="gender"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                >
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </Field>
+                                <ErrorMessage name="gender" component="div" className="text-red-500 text-sm" />
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="pet_color" className="block text-gray-700 dark:text-gray-300">Pet Color</label>
-                            <Field name="pet_color" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="pet_color" component="div" className="text-red-500 text-sm" />
-                        </div>
+                            {/* Age */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Age</label>
+                                <Field
+                                    type="text"
+                                    name="age"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="age" component="div" className="text-red-500 text-sm" />
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="pet_gender" className="block text-gray-700 dark:text-gray-300">Pet Gender</label>
-                            <Field name="pet_gender" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="pet_gender" component="div" className="text-red-500 text-sm" />
-                        </div>
+                            {/* Vaccinated */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Vaccinated</label>
+                                <Field
+                                    as="select"
+                                    name="vaccinated"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                >
+                                    <option value="">Select Vaccination Status</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </Field>
+                                <ErrorMessage name="vaccinated" component="div" className="text-red-500 text-sm" />
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="category" className="block text-gray-700 dark:text-gray-300">Pet Category</label>
-                            <Field name="category">
-                                {({ field, form }) => (
-                                    <Select
-                                        options={categories}
-                                        name="category"
-                                        onChange={option => form.setFieldValue('category', option.value)}
-                                        onBlur={field.onBlur}
-                                        className="mt-1 block w-full dark:bg-gray-800 dark:text-gray-200"
-                                    />
+                            {/* Breed */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Breed</label>
+                                <Field
+                                    type="text"
+                                    name="breed"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="breed" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Size */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Size</label>
+                                <Field
+                                    type="text"
+                                    name="size"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="size" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Color */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Color</label>
+                                <Field
+                                    type="text"
+                                    name="color"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="color" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Weight */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Weight</label>
+                                <Field
+                                    type="text"
+                                    name="weight"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="weight" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Health */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Health Status</label>
+                                <Field
+                                    type="text"
+                                    name="healthStatus"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="healthStatus" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Neutered */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Neutered</label>
+                                <Field
+                                    as="select"
+                                    name="neutered"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                >
+                                    <option value="">Select Neutering Status</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </Field>
+                                <ErrorMessage name="neutered" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Adoption Fee */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Adoption Fee</label>
+                                <Field
+                                    type="text"
+                                    name="adoptionFee"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="adoptionFee" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* City */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">City</label>
+                                <Field
+                                    type="text"
+                                    name="city"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="city" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* District */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">District</label>
+                                <Field
+                                    type="text"
+                                    name="district"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="district" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Country */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Country</label>
+                                <Field
+                                    type="text"
+                                    name="country"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="country" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Phone */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Phone</label>
+                                <Field
+                                    type="text"
+                                    name="phone"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Email */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Email</label>
+                                <Field
+                                    type="email"
+                                    name="email"
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+                            </div>
+
+                            {/* Images */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Upload Images</label>
+                                <input
+                                    type="file"
+                                    multiple
+                                    onChange={(event) => handleImageUpload(event, setFieldValue)}
+                                    className="w-full px-3 py-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                                />
+                                {loading ? (
+                                    <p className="text-gray-500 mt-2">Uploading images...</p>
+                                ) : (
+                                    <div className="flex gap-2 mt-2">
+                                        {imageUrls.map((url, index) => (
+                                            <img
+                                                key={index}
+                                                src={url}
+                                                alt={`Pet ${index}`}
+                                                className="h-20 w-20 object-cover rounded-lg"
+                                            />
+                                        ))}
+                                    </div>
                                 )}
-                            </Field>
-                            <ErrorMessage name="category" component="div" className="text-red-500 text-sm" />
-                        </div>
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="pet_location" className="block text-gray-700 dark:text-gray-300">Pet Location</label>
-                            <Field name="pet_location" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="pet_location" component="div" className="text-red-500 text-sm" />
-                        </div>
+                            {/* Category */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Category</label>
+                                <Select
+                                    options={categories}
+                                    onChange={(option) => setFieldValue("category", option.value)}
+                                    className="dark:bg-gray-800 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="category" component="div" className="text-red-500 text-sm" />
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="vaccinated" className="block text-gray-700 dark:text-gray-300">Vaccinated</label>
-                            <Field name="vaccinated" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="vaccinated" component="div" className="text-red-500 text-sm" />
-                        </div>
+                            {/* Description */}
+                            <div className="mb-4">
+                                <label className="block font-medium mb-1">Description</label>
+                                <ReactQuill
+                                    onChange={(value) => setFieldValue("description", value)}
+                                    className="dark:bg-gray-700 dark:text-gray-200"
+                                />
+                                <ErrorMessage name="description" component="div" className="text-red-500 text-sm" />
+                            </div>
 
-                        <div className="mb-4">
-                            <label htmlFor="neutered_spayed" className="block text-gray-700 dark:text-gray-300">Neutered/Spayed</label>
-                            <Field name="neutered_spayed" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="neutered_spayed" component="div" className="text-red-500 text-sm" />
-                        </div>
-
-                        <div className="mb-4">
-                            <label htmlFor="shortDescription" className="block text-gray-700 dark:text-gray-300">Short Description</label>
-                            <Field name="shortDescription" type="text" className="mt-1 block w-full dark:bg-gray-700 dark:text-gray-200" />
-                            <ErrorMessage name="shortDescription" component="div" className="text-red-500 text-sm" />
-                        </div>
-
-                        <div className="mb-4">
-                            <label htmlFor="longDescription" className="block text-gray-700 dark:text-gray-300">Long Description</label>
-                            <Field name="longDescription">
-                                {({ field }) => (
-                                    <ReactQuill
-                                        value={values.longDescription}
-                                        onChange={value => field.onChange({ target: { name: field.name, value } })}
-                                        className="dark:bg-gray-700 dark:text-gray-200"
-                                    />
-                                )}
-                            </Field>
-                            <ErrorMessage name="longDescription" component="div" className="text-red-500 text-sm" />
-                        </div>
-
-                        <div>
+                            {/* Submit Button */}
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="bg-[#2E256F] text-white px-4 py-2 rounded dark:bg-sky-700"
+                                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 dark:bg-sky-700"
                             >
-                                Submit
+                                {isSubmitting ? "Submitting..." : "Submit"}
                             </button>
-                        </div>
-                    </Form>
-                )}
-            </Formik>
+                        </Form>
+                    )}
+                </Formik>
+            </div>
         </div>
     );
 };
 
-export default AddPets;
+export default AddPetsPage;
